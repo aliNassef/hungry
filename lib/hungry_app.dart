@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/utils/app_theme.dart';
 
 import 'core/navigation/app_routes.dart';
@@ -9,11 +10,14 @@ class HungryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateRoute: AppRouter.onGenerateRoute,
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      initialRoute: SplashView.routeName,
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      child: MaterialApp(
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        initialRoute: SplashView.routeName,
+      ),
     );
   }
 }
