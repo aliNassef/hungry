@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/features/splash/presentation/view/splash_view.dart';
 
 import 'nav_animation_enum.dart';
 import 'nav_args.dart';
@@ -10,6 +11,9 @@ class AppRouter {
 
     late final Widget page;
     switch (settings.name) {
+      case SplashView.routeName:
+        page = const SplashView();
+        break;
       default:
         page = const Scaffold(body: Center(child: Text("Page not found")));
     }
