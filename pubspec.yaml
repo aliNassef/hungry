@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.6
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
   fluttertoast: ^9.0.0
@@ -29,4 +30,5 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/splash_burger_image.png
     - assets/icons/
