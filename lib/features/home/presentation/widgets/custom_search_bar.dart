@@ -27,7 +27,7 @@ class CustomSearchBar extends StatelessWidget {
           border: _buildBorderSearch(),
           enabledBorder: _buildBorderSearch(),
           focusedBorder: _buildBorderSearch(),
-          prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass, size: 20.sp),
+          prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass),
           filled: true,
           fillColor: Colors.white,
           hintText: 'Search',
