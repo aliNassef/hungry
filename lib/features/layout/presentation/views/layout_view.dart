@@ -24,7 +24,7 @@ class _LayoutViewState extends State<LayoutView> {
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: Icon(FontAwesomeIcons.houseChimney),
+            icon: FaIcon(FontAwesomeIcons.houseChimney),
           ),
         ),
         PersistentTabConfig(
@@ -32,7 +32,7 @@ class _LayoutViewState extends State<LayoutView> {
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: Icon(FontAwesomeIcons.cartShopping),
+            icon: FaIcon(FontAwesomeIcons.cartShopping),
           ),
         ),
 
@@ -41,7 +41,7 @@ class _LayoutViewState extends State<LayoutView> {
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: Icon(FontAwesomeIcons.user),
+            icon: FaIcon(FontAwesomeIcons.user),
           ),
         ),
       ],
