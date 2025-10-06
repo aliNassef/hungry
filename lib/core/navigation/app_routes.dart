@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/features/splash/presentation/view/splash_view.dart';
 
+import '../../features/home/presentation/view/meal_details_view.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
 import 'nav_animation_enum.dart';
 import 'nav_args.dart';
@@ -17,6 +18,9 @@ class AppRouter {
         break;
       case LayoutView.routeName:
         page = const LayoutView();
+        break;
+      case MealDetailsView.routeName:
+        page = const MealDetailsView();
         break;
       default:
         page = const Scaffold(body: Center(child: Text("Page not found")));
