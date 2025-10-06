@@ -8,4 +8,11 @@ class AppShadwo {
     blurStyle: BlurStyle.outer,
     spreadRadius: 0,
   );
+
+  static final boxShadwo2 = BoxShadow(
+    color: Colors.black.withValues(alpha: 0.25),
+    spreadRadius: 2,
+    blurRadius: 10,
+    offset: const Offset(0, 5),
+  );
 }
