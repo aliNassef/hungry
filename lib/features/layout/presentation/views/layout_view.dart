@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hungry/core/utils/app_colors.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
+import '../../../cart/presentation/view/cart_view.dart';
 import '../../../home/presentation/view/home_view.dart';
 
 class LayoutView extends StatefulWidget {
@@ -28,7 +29,7 @@ class _LayoutViewState extends State<LayoutView> {
           ),
         ),
         PersistentTabConfig(
-          screen: Container(),
+          screen: CartView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
