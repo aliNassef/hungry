@@ -14,6 +14,8 @@ class DefaultAppButton extends StatelessWidget {
     this.icon = const SizedBox(),
     this.padding = 0,
     this.radius = 20,
+    this.borderColor = Colors.transparent,
+    this.borderWidth = 1.0,
   });
   final String text;
   final void Function()? onPressed;
@@ -22,6 +24,8 @@ class DefaultAppButton extends StatelessWidget {
   final Widget icon;
   final double padding;
   final double radius;
+  final Color borderColor;
+  final double borderWidth;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -30,7 +34,10 @@ class DefaultAppButton extends StatelessWidget {
           EdgeInsets.symmetric(vertical: 16),
         ),
         shape: WidgetStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+          RoundedRectangleBorder(
+            side: BorderSide(color: borderColor, width: borderWidth),
+            borderRadius: BorderRadius.circular(radius),
+          ),
         ),
         alignment: Alignment.center,
         backgroundColor: WidgetStatePropertyAll(backgroundColor),

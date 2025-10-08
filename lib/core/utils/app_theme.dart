@@ -8,6 +8,13 @@ class AppTheme {
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: Colors.white,
     textTheme: GoogleFonts.robotoTextTheme(),
+    primarySwatch: Colors.green, // Your app's primary theme color
+    // This is where you customize the selection colors
+    textSelectionTheme: TextSelectionThemeData(
+      selectionColor: AppColors.lightGrey,
+      selectionHandleColor: AppColors.lightGrey,
+      cursorColor: AppColors.light,
+    ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       scrolledUnderElevation: 0,
