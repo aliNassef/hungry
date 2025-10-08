@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
 import '../../../cart/presentation/view/cart_view.dart';
 import '../../../home/presentation/view/home_view.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 
 class LayoutView extends StatefulWidget {
   const LayoutView({super.key});
@@ -36,9 +37,8 @@ class _LayoutViewState extends State<LayoutView> {
             icon: FaIcon(FontAwesomeIcons.cartShopping),
           ),
         ),
-
         PersistentTabConfig(
-          screen: Container(),
+          screen: ProfileView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
@@ -52,6 +52,7 @@ class _LayoutViewState extends State<LayoutView> {
         height: kBottomNavigationBarHeight,
         navBarDecoration: NavBarDecoration(
           color: AppColors.primary,
+
           borderRadius: BorderRadius.vertical(top: Radius.circular(30.r)),
         ),
       ),
