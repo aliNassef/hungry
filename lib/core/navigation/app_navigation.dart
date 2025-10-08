@@ -5,8 +5,12 @@ class AppNavigation {
     BuildContext context,
     String routeName, {
     Object? arguments,
+    bool useAppRoute = false,
   }) {
-    return Navigator.of(context).pushNamed(routeName, arguments: arguments);
+    return Navigator.of(
+      context,
+      rootNavigator: useAppRoute,
+    ).pushNamed(routeName, arguments: arguments);
   }
 
   static Future<T?> pushReplacementNamed<T extends Object?, TO extends Object?>(
