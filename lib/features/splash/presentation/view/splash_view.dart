@@ -1,13 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
 import 'package:hungry/core/navigation/nav_animation_enum.dart';
-import 'package:hungry/features/layout/presentation/views/layout_view.dart';
-
 import '../../../../core/navigation/nav_args.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../auth/presentation/views/login_view.dart';
 import '../widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
@@ -26,7 +24,7 @@ class _SplashViewState extends State<SplashView> {
     _timer = Timer(const Duration(seconds: 3), () {
       AppNavigation.pushNamed(
         context,
-        LayoutView.routeName,
+        LoginView.routeName,
         arguments: NavArgs(animation: NavAnimation.fade),
       );
     });

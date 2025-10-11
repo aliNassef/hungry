@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/core/di/service_locator.dart';
 import 'package:hungry/core/utils/app_colors.dart';
 
 import '../helpers/cache_helper.dart';
@@ -14,6 +15,7 @@ class AppInitializer {
     WidgetsFlutterBinding.ensureInitialized();
     Bloc.observer = CustomBlocObserver();
     await CacheHelper.init();
+    setupServiceLocator();
     await ScreenUtil.ensureScreenSize();
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle().copyWith(
