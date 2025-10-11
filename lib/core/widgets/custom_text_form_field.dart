@@ -24,20 +24,37 @@ class CustomTextFormField extends StatefulWidget {
 }
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  final bool _showVisobility = false;
+  late bool _showVisobility;
+  @override
+  void initState() {
+    super.initState();
+    _showVisobility = widget.isPassword;
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
+      validator: (val) {
+        if (val == null || val.isEmpty) {
+          return "Please enter ${widget.label.toLowerCase()}";
+        }
+        return null;
+      },
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       cursorColor: AppColors.light,
       style: AppStyles.semiBold16.copyWith(color: AppColors.light),
-      obscureText: widget.isPassword,
+      obscureText: _showVisobility,
       decoration: InputDecoration(
         labelText: widget.label,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: widget.isPassword
             ? GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    _showVisobility = !_showVisobility;
+                  });
+                },
                 child: Icon(
                   _showVisobility
                       ? FontAwesomeIcons.eye

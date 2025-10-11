@@ -4,17 +4,17 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../env/env.dart';
 import 'api_interceptors.dart';
 import 'api_service.dart';
-import 'end_ponits.dart';
 import 'errors/exceptions.dart';
 
 class DioHelper extends ApiService {
   final Dio dio;
   DioHelper({required this.dio}) {
-    dio.options.baseUrl = EndPoints.baseUrl;
-    dio.options.sendTimeout = const Duration(seconds: 30);
-    dio.options.receiveTimeout = const Duration(seconds: 30);
+    dio.options.baseUrl = Env.baseUrl;
+    dio.options.sendTimeout = const Duration(minutes: 1);
+    dio.options.receiveTimeout = const Duration(minutes: 1);
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(
       PrettyDioLogger(

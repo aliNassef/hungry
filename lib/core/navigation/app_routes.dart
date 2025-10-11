@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/features/splash/presentation/view/splash_view.dart';
 
+import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/cart/presentation/view/checkout_view.dart';
 import '../../features/home/presentation/view/meal_details_view.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
@@ -25,6 +26,9 @@ class AppRouter {
         break;
       case CheckoutView.routeName:
         page = const CheckoutView();
+        break;
+      case LoginView.routeName:
+        page = const LoginView();
         break;
       default:
         page = const Scaffold(body: Center(child: Text("Page not found")));
