@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -108,65 +106,6 @@ class DioHelper extends ApiService {
         queryParameters: queryParameters,
       );
       return response;
-    } on DioException catch (e) {
-      handleDioException(e);
-    }
-  }
-
-  @override
-  Future postDataWithImage(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
-  }) async {
-    dio.options.headers = {
-      "accept": "*/*",
-      "Content-Type": "multipart/form-data",
-    };
-    try {
-      if (data is Map<String, dynamic> &&
-          (data.containsKey('files') || data.containsKey('Image'))) {
-        final formData = FormData();
-
-        String fileFieldName = data.containsKey('files') ? 'files' : 'Image';
-        final files = data[fileFieldName] as List;
-
-        for (var file in files) {
-          if (file is File) {
-            formData.files.add(
-              MapEntry(
-                fileFieldName,
-                await MultipartFile.fromFile(
-                  file.path,
-                  filename: file.path.split('/').last,
-                ),
-              ),
-            );
-          } else if (file is MultipartFile) {
-            formData.files.add(MapEntry(fileFieldName, file));
-          }
-        }
-        data.forEach((key, value) {
-          if (key != 'files' && value != null) {
-            formData.fields.add(MapEntry(key, value.toString()));
-          }
-        });
-
-        final response = await dio.post(
-          path,
-          data: formData,
-          queryParameters: queryParameters,
-        );
-        return response;
-      } else {
-        final response = await dio.post(
-          path,
-          data: isFromData ? FormData.fromMap(data) : data,
-          queryParameters: queryParameters,
-        );
-        return response;
-      }
     } on DioException catch (e) {
       handleDioException(e);
     }

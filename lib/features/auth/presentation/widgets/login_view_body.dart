@@ -9,7 +9,10 @@ import 'package:hungry/core/utils/app_dilagos.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_text_form_field.dart';
 import 'package:hungry/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:hungry/features/auth/presentation/views/register_view.dart';
 
+import '../../../../core/navigation/nav_animation_enum.dart';
+import '../../../../core/navigation/nav_args.dart';
 import '../../../../core/widgets/default_app_button.dart';
 import '../../../../core/widgets/logo_widget.dart';
 import '../../data/models/login_input_model.dart';
@@ -76,7 +79,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           AnotherWaySigning(
             action: 'Sign Up',
             content: 'Don\'t have an account? ',
-            onTap: () => AppNavigation.pushNamed(context, ''),
+            onTap: () => AppNavigation.pushNamed(
+              context,
+              RegisterView.routeName,
+              arguments: NavArgs(animation: NavAnimation.fade),
+            ),
           ),
         ],
       ),
