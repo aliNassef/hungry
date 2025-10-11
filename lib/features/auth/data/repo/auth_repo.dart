@@ -10,4 +10,5 @@ abstract class AuthRepo {
   Future<Either<Failure, UserModel>> register(
     RegisterInputModel registerInputModel,
   );
+  Future<bool> isLoggedIn();
 }

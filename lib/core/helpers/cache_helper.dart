@@ -11,7 +11,7 @@ class CacheHelper {
   }
 
   // ---------------- Save ----------------
-  static Future<void> saveData({
+  Future<void> saveData({
     required String key,
     required dynamic value,
     bool secure = false,
@@ -27,7 +27,7 @@ class CacheHelper {
   }
 
   // ---------------- Get ----------------
-  static Future<dynamic> getData(String key, {bool secure = false}) async {
+  Future<dynamic> getData(String key, {bool secure = false}) async {
     if (secure) {
       return await _secureStorage.read(key: key);
     } else {
@@ -36,7 +36,7 @@ class CacheHelper {
   }
 
   // ---------------- Remove ----------------
-  static Future<void> removeData(String key, {bool secure = false}) async {
+  Future<void> removeData(String key, {bool secure = false}) async {
     if (secure) {
       await _secureStorage.delete(key: key);
     } else {
@@ -45,7 +45,7 @@ class CacheHelper {
   }
 
   // ---------------- Clear ----------------
-  static Future<void> clearAll({bool? secure}) async {
+  Future<void> clearAll({bool? secure}) async {
     if (secure == true) {
       // clear only secure
       await _secureStorage.deleteAll();

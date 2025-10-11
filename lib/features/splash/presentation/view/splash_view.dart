@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
-import 'package:hungry/core/navigation/nav_animation_enum.dart';
-import '../../../../core/navigation/nav_args.dart';
+import 'package:hungry/features/auth/presentation/views/login_view.dart';
+import 'package:hungry/features/splash/presentation/controller/splash_cubit/splash_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../auth/presentation/views/login_view.dart';
+import '../../../layout/presentation/views/layout_view.dart';
 import '../widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
@@ -21,12 +22,8 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 3), () {
-      AppNavigation.pushNamed(
-        context,
-        LoginView.routeName,
-        arguments: NavArgs(animation: NavAnimation.fade),
-      );
+    _timer = Timer(const Duration(seconds: 3), () async {
+      context.read<SplashCubit>().checkAuth();
     });
   }
 
@@ -48,7 +45,24 @@ class _SplashViewState extends State<SplashView> {
     );
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: SafeArea(child: SplashViewBody()),
+      body: BlocListener<SplashCubit, SplashState>(
+        listener: (context, state) {
+          if (state is Authenticated) {
+            AppNavigation.pushAndRemoveUntil(
+              context,
+              LayoutView.routeName,
+              (route) => false,
+            );
+          } else if (state is UnAuthenticated) {
+            AppNavigation.pushAndRemoveUntil(
+              context,
+              LoginView.routeName,
+              (route) => false,
+            );
+          }
+        },
+        child: SafeArea(child: SplashViewBody()),
+      ),
     );
   }
 }

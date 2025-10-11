@@ -18,6 +18,7 @@ import '../../../../core/utils/app_dilagos.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/logo_widget.dart';
+import '../../../layout/presentation/views/layout_view.dart';
 import '../../data/models/register_input_model.dart';
 import 'another_way_signing.dart';
 
@@ -155,6 +156,12 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
 
         if (state is AuthSuccess) {
           AppNavigation.pop(context);
+          AppNavigation.pushAndRemoveUntil(
+            context,
+            LayoutView.routeName,
+            (route) => false,
+            arguments: NavArgs(animation: NavAnimation.fade),
+          );
           AppDilagos.showToast(text: 'Register Success');
         }
       },

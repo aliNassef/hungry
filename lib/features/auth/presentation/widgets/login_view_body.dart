@@ -10,6 +10,7 @@ import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_text_form_field.dart';
 import 'package:hungry/features/auth/presentation/controller/cubit/auth_cubit.dart';
 import 'package:hungry/features/auth/presentation/views/register_view.dart';
+import 'package:hungry/features/layout/presentation/views/layout_view.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';
 import '../../../../core/navigation/nav_args.dart';
@@ -106,6 +107,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
         if (state is AuthSuccess) {
           AppNavigation.pop(context);
+          AppNavigation.pushAndRemoveUntil(
+            context,
+            LayoutView.routeName,
+            (route) => false,
+            arguments: NavArgs(animation: NavAnimation.fade),
+          );
           AppDilagos.showToast(text: 'Login Success');
         }
       },

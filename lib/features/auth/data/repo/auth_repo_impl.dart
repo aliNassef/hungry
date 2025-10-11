@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import 'package:hungry/core/api/errors/failure.dart';
+import 'package:hungry/features/auth/data/datasource/auth_local_datasource.dart';
 
 import 'package:hungry/features/auth/data/models/login_input_model.dart';
 
@@ -12,19 +13,25 @@ import '../datasource/auth_remote_datasource.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
-  final AuthRemoteDatasource _authDatasource;
-
-  AuthRepoImpl({required AuthRemoteDatasource authRemoteDatasource})
-    : _authDatasource = authRemoteDatasource;
+  final AuthRemoteDatasource _authRemoteDatasource;
+  final AuthLocalDatasource _authLocalDatasource;
+  AuthRepoImpl({
+    required AuthRemoteDatasource authRemoteDatasource,
+    required AuthLocalDatasource authLocalDatasource,
+  }) : _authLocalDatasource = authLocalDatasource,
+       _authRemoteDatasource = authRemoteDatasource;
   @override
   Future<Either<Failure, UserModel>> login(
     LoginInputModel loginInputModel,
   ) async {
     try {
-      final user = await _authDatasource.login(loginInputModel);
+      final user = await _authRemoteDatasource.login(loginInputModel);
+      await _authLocalDatasource.cacheToken(user.token);
       return Right(user);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
+    } on CustomException catch (e) {
+      return Left(Failure(errMessage: e.errorMessage));
     }
   }
 
@@ -33,10 +40,18 @@ class AuthRepoImpl extends AuthRepo {
     RegisterInputModel registerInputModel,
   ) async {
     try {
-      final user = await _authDatasource.register(registerInputModel);
+      final user = await _authRemoteDatasource.register(registerInputModel);
+      await _authLocalDatasource.cacheToken(user.token);
       return Right(user);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
+    } on CustomException catch (e) {
+      return Left(Failure(errMessage: e.errorMessage));
     }
+  }
+  @override
+  Future<bool> isLoggedIn() async {
+    final token = await _authLocalDatasource.getCachedToken();
+    return token != null;
   }
 }
