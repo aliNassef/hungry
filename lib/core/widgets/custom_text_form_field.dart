@@ -1,29 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_styles.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     required this.label,
     required this.hint,
+    this.controller,
+    this.isPassword = false,
   });
+
+  final bool isPassword;
   final String label;
   final String hint;
+  final TextEditingController? controller;
 
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  final bool _showVisobility = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       cursorColor: AppColors.light,
       style: AppStyles.semiBold16.copyWith(color: AppColors.light),
+      obscureText: widget.isPassword,
       decoration: InputDecoration(
-        labelText: label,
+        labelText: widget.label,
         floatingLabelBehavior: FloatingLabelBehavior.always,
-
-        hintText: hint,
+        suffixIcon: widget.isPassword
+            ? GestureDetector(
+                onTap: () {},
+                child: Icon(
+                  _showVisobility
+                      ? FontAwesomeIcons.eye
+                      : FontAwesomeIcons.eyeSlash,
+                  color: AppColors.light,
+                ),
+              )
+            : null,
+        hintText: widget.hint,
         hintStyle: AppStyles.regular14.copyWith(color: AppColors.light),
         labelStyle: AppStyles.medium16.copyWith(color: AppColors.light),
         border: _buildBorderTextForm(),
