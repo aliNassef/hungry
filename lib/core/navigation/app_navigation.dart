@@ -35,7 +35,11 @@ class AppNavigation {
     ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }
 
-  static void pop<T extends Object?>(BuildContext context, [T? result]) {
-    Navigator.of(context).pop(result);
+  static void pop<T extends Object?>(
+    BuildContext context, {
+    bool? useAppRoute,
+    T? result,
+  }) {
+    Navigator.of(context, rootNavigator: useAppRoute ?? false).pop(result);
   }
 }

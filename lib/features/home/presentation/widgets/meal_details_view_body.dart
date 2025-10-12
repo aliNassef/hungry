@@ -7,9 +7,11 @@ import 'package:hungry/core/extensions/padding_extension.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
-import 'package:hungry/features/home/data/models/cart_item_model.dart';
+import 'package:hungry/features/cart/data/models/cart_item_model.dart';
+import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:hungry/features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_dilagos.dart';
 import '../../data/models/meal_model.dart';
 import 'customize_your_meal_text_widget.dart';
 import 'side_options_list_items.dart';
@@ -90,19 +92,38 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
         ).withHorizontalPadding(16),
         SideOptionsListItems(sideOptions: sideOptions),
         Gap(50.h),
-        TotalPriceAndAddToCart(
-          price: widget.meal.price,
-          onPressed: () {
-            var cartItemModel = CartItemModel(
-              productId: widget.meal.id,
-              quantity: 1,
-              sideOptions: sideOptions.value,
-              spicy: spicyValue.value,
-              toppings: toppings.value,
-            );
-
-            // add to cart call api  
+        BlocListener<CartCubit, CartState>(
+          listenWhen: (previous, current) =>
+              current is CartAdded ||
+              current is CartAddError ||
+              current is CartAddLoading,
+          listener: (context, state) {
+            if (state is CartAdded) {
+              AppNavigation.pop(context, useAppRoute: true);
+              AppDilagos.showToast(text: 'Added to cart');
+            } else if (state is CartAddError) {
+              AppNavigation.pop(context, useAppRoute: true);
+              AppDilagos.showErrorMessage(
+                context,
+                errMessage: state.errMessage,
+              );
+            } else {
+              AppDilagos.showLoadingBox(context);
+            }
           },
+          child: TotalPriceAndAddToCart(
+            price: widget.meal.price,
+            onPressed: () {
+              var cartItemModel = CartItemModel(
+                productId: widget.meal.id,
+                quantity: 1,
+                sideOptions: sideOptions.value,
+                spicy: spicyValue.value,
+                toppings: toppings.value,
+              );
+              context.read<CartCubit>().addToCart(cartItemModel);
+            },
+          ),
         ).withHorizontalPadding(16.r),
         Gap(30.w),
       ],

@@ -7,8 +7,11 @@ import 'package:hungry/features/auth/data/datasource/auth_remote_datasource.dart
 import 'package:hungry/features/auth/data/repo/auth_repo.dart';
 import 'package:hungry/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:hungry/features/auth/presentation/controller/cubit/auth_cubit.dart';
+import 'package:hungry/features/cart/data/datasource/cart_remote_datasource.dart';
 import 'package:hungry/features/splash/presentation/controller/splash_cubit/splash_cubit.dart';
-
+import '../../features/cart/data/repo/cart_repo.dart';
+import '../../features/cart/data/repo/cart_repo_impl.dart';
+import '../../features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import '../../features/home/data/datasource/home_remote_datasource.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
@@ -23,6 +26,7 @@ void setupServiceLocator() async {
   _setupExternal();
   _authFeature();
   _homeFeature();
+  _setupCartFeature();
 }
 
 void _setupExternal() {
@@ -58,5 +62,15 @@ void _homeFeature() {
   );
   injector.registerLazySingleton<HomeRemoteDatasource>(
     () => HomeRemoteDatasourceImpl(apiService: injector.get<ApiService>()),
+  );
+}
+
+void _setupCartFeature() {
+  injector.registerFactory(() => CartCubit(injector.get<CartRepo>()));
+  injector.registerLazySingleton<CartRepo>(
+    () => CartRepoImpl(dataSource: injector.get<CartRemoteDataSource>()),
+  );
+  injector.registerLazySingleton<CartRemoteDataSource>(
+    () => CartRemoteDataSourceImpl(apiService: injector.get<ApiService>()),
   );
 }

@@ -7,7 +7,11 @@ import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/default_app_button.dart';
 
 class TotalPriceAndAddToCart extends StatelessWidget {
-  const TotalPriceAndAddToCart({super.key, required this.price, this.onPressed});
+  const TotalPriceAndAddToCart({
+    super.key,
+    required this.price,
+    this.onPressed,
+  });
   final String price;
   final void Function()? onPressed;
   @override
@@ -44,7 +48,7 @@ class TotalPriceAndAddToCart extends StatelessWidget {
         ),
         Gap(16.w),
         Expanded(
-          child: DefaultAppButton(text: 'Add to Cart', onPressed: () {}),
+          child: DefaultAppButton(text: 'Add to Cart', onPressed: onPressed),
         ),
       ],
     );
