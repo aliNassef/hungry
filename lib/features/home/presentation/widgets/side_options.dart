@@ -5,12 +5,12 @@ import 'package:hungry/core/logging/app_logger.dart';
 import 'package:hungry/core/utils/app_shadwo.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
-import 'package:hungry/features/home/data/models/topping_model.dart';
+import 'package:hungry/features/home/data/models/slide_option_model.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class Topping extends StatelessWidget {
-  const Topping({super.key, required this.topping});
-  final ToppingModel topping;
+class SideOption extends StatelessWidget {
+  const SideOption({super.key, required this.sideOption});
+  final SlideOptionModel sideOption;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,7 +41,7 @@ class Topping extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        topping.name,
+                        sideOption.name,
                         style: AppStyles.medium12.copyWith(
                           color: AppColors.light,
                         ),
@@ -83,7 +83,7 @@ class Topping extends StatelessWidget {
                 boxShadow: [AppShadwo.boxShadwo2],
               ),
               child: CustomNetworkImage(
-                img: topping.image,
+                img: sideOption.image,
                 width: 140.w,
                 height: 60.h,
               ),
