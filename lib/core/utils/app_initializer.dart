@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/app_constants.dart';
+import 'package:hungry/core/api/api_interceptors.dart';
 import 'package:hungry/core/di/service_locator.dart';
 import 'package:hungry/core/utils/app_colors.dart';
 
@@ -16,6 +18,8 @@ class AppInitializer {
     Bloc.observer = CustomBlocObserver();
     await CacheHelper.init();
     setupServiceLocator();
+    final token = await CacheHelper().getData(AppConstants.TOKEN, secure: true);
+    ApiInterceptor().setToken(token);
     await ScreenUtil.ensureScreenSize();
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle().copyWith(

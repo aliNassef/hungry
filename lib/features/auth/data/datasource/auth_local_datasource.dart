@@ -1,6 +1,7 @@
 import 'package:hungry/app_constants.dart';
 import 'package:hungry/core/api/errors/exceptions.dart';
 
+import '../../../../core/api/api_interceptors.dart';
 import '../../../../core/helpers/cache_helper.dart';
 
 abstract class AuthLocalDatasource {
@@ -23,6 +24,7 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
         value: token,
         secure: true,
       );
+      ApiInterceptor().setToken(token);
     } catch (e) {
       throw CustomException(errorMessage: 'Failed to cache token: $e');
     }
