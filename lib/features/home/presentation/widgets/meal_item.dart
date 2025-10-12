@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
-import 'package:hungry/core/utils/app_assets.dart';
 import 'package:hungry/core/utils/app_colors.dart';
 import 'package:hungry/core/utils/app_styles.dart';
+import 'package:hungry/core/widgets/custom_network_image.dart';
+import 'package:hungry/features/home/data/models/meal_model.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';
 import '../../../../core/navigation/nav_args.dart';
@@ -12,8 +13,8 @@ import '../../../../core/utils/app_shadwo.dart';
 import '../view/meal_details_view.dart';
 
 class MealCardItem extends StatelessWidget {
-  const MealCardItem({super.key});
-
+  const MealCardItem({super.key, required this.meal});
+  final MealModel meal;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,28 +33,24 @@ class MealCardItem extends StatelessWidget {
           spacing: 5.h,
           children: [
             Center(
-              child: Image.asset(
-                AppImages.splashBurger,
-                height: 120.h,
+              child: CustomNetworkImage(
+                img: meal.image,
                 width: 120.w,
-                fit: BoxFit.fill,
+                height: 120.h,
               ),
             ),
             Gap(5.h),
             Text(
-              'Cheeseburger',
+              meal.name,
               style: AppStyles.semiBold16.copyWith(color: AppColors.brown),
             ),
-            Text(
-              'Wendy\'s Burger',
-              style: AppStyles.regular16.copyWith(color: AppColors.brown),
-            ),
+
             Row(
               spacing: 3.w,
               children: [
                 Icon(Icons.star, color: Colors.amberAccent, size: 16.sp),
                 Text(
-                  '4.5',
+                  meal.rating,
                   style: AppStyles.medium16.copyWith(color: AppColors.brown),
                 ),
               ],

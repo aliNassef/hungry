@@ -9,6 +9,11 @@ import 'package:hungry/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:hungry/features/auth/presentation/controller/cubit/auth_cubit.dart';
 import 'package:hungry/features/splash/presentation/controller/splash_cubit/splash_cubit.dart';
 
+import '../../features/home/data/datasource/home_remote_datasource.dart';
+import '../../features/home/data/repo/home_repo.dart';
+import '../../features/home/data/repo/home_repo_impl.dart';
+import '../../features/home/presentation/controller/get_categories_cubit/get_categories_cubit.dart';
+import '../../features/home/presentation/controller/get_products_cubit/get_products_cubit.dart';
 import '../helpers/cache_helper.dart';
 
 final injector = GetIt.instance;
@@ -16,6 +21,7 @@ final injector = GetIt.instance;
 void setupServiceLocator() async {
   _setupExternal();
   _authFeature();
+  _homeFeature();
 }
 
 void _setupExternal() {
@@ -40,3 +46,13 @@ void _authFeature() {
   );
 }
 
+void _homeFeature() {
+  injector.registerFactory(() => GetCategoriesCubit(injector.get<HomeRepo>()));
+  injector.registerFactory(() => GetProductsCubit(injector.get<HomeRepo>()));
+  injector.registerLazySingleton<HomeRepo>(
+    () => HomeRepoImpl(datasource: injector.get<HomeRemoteDatasource>()),
+  );
+  injector.registerLazySingleton<HomeRemoteDatasource>(
+    () => HomeRemoteDatasourceImpl(apiService: injector.get<ApiService>()),
+  );
+}
