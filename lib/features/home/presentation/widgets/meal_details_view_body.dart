@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/extensions/mediaquery_size.dart';
 import 'package:hungry/core/extensions/padding_extension.dart';
+import 'package:hungry/core/navigation/app_navigation.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
+import 'package:hungry/features/home/data/models/cart_item_model.dart';
 import 'package:hungry/features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../data/models/meal_model.dart';
@@ -31,6 +33,9 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
     context.read<GetToppingsAndSideOptionsCubit>().getSideOptions();
   }
 
+  ValueNotifier<double> spicyValue = ValueNotifier(0.5);
+  ValueNotifier<List<int>> toppings = ValueNotifier([]);
+  ValueNotifier<List<int>> sideOptions = ValueNotifier([]);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +45,9 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
         Align(
           alignment: Alignment.centerLeft,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppNavigation.pop(context);
+            },
             icon: Icon(Icons.arrow_back_ios_new_outlined, size: 24.sp),
           ),
         ),
@@ -64,7 +71,7 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
                     desc: widget.meal.description,
                   ),
                   Gap(16),
-                  SpicySlider(),
+                  SpicySlider(spicyValue: spicyValue),
                 ],
               ).withHorizontalPadding(16),
             ),
@@ -75,15 +82,28 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
           'Toppings',
           style: AppStyles.semiBold16.copyWith(color: AppColors.brown),
         ).withHorizontalPadding(16),
-        ToppingsListItems(),
+        ToppingsListItems(toppings: toppings),
         Gap(32.h),
         Text(
           'Side options',
           style: AppStyles.semiBold16.copyWith(color: AppColors.brown),
         ).withHorizontalPadding(16),
-        SideOptionsListItems(),
+        SideOptionsListItems(sideOptions: sideOptions),
         Gap(50.h),
-        TotalPriceAndAddToCart().withHorizontalPadding(16.r),
+        TotalPriceAndAddToCart(
+          price: widget.meal.price,
+          onPressed: () {
+            var cartItemModel = CartItemModel(
+              productId: widget.meal.id,
+              quantity: 1,
+              sideOptions: sideOptions.value,
+              spicy: spicyValue.value,
+              toppings: toppings.value,
+            );
+
+            // add to cart call api  
+          },
+        ).withHorizontalPadding(16.r),
         Gap(30.w),
       ],
     );

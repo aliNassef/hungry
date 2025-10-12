@@ -7,8 +7,9 @@ import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/default_app_button.dart';
 
 class TotalPriceAndAddToCart extends StatelessWidget {
-  const TotalPriceAndAddToCart({super.key});
-
+  const TotalPriceAndAddToCart({super.key, required this.price, this.onPressed});
+  final String price;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,7 +34,7 @@ class TotalPriceAndAddToCart extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: '2000',
+                    text: price,
                     style: AppStyles.regular22.copyWith(color: AppColors.black),
                   ),
                 ],

@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/logging/app_logger.dart';
-import 'package:hungry/core/utils/app_shadwo.dart';
+ import 'package:hungry/core/utils/app_shadwo.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
 import 'package:hungry/features/home/data/models/topping_model.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class Topping extends StatelessWidget {
-  const Topping({super.key, required this.topping});
+class Topping extends StatefulWidget {
+  const Topping({super.key, required this.topping, this.onTap});
   final ToppingModel topping;
+  final void Function()? onTap;
+
+  @override
+  State<Topping> createState() => _ToppingState();
+}
+
+class _ToppingState extends State<Topping> {
+  bool isActive = false;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,23 +49,26 @@ class Topping extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        topping.name,
+                        widget.topping.name,
                         style: AppStyles.medium12.copyWith(
                           color: AppColors.light,
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          AppLogger.debug('Add Topping');
+                          widget.onTap?.call();
+                          setState(() {
+                            isActive = !isActive;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.all(2),
-                          decoration: const BoxDecoration(
-                            color: AppColors.primary,
+                          decoration: BoxDecoration(
+                            color: isActive ? AppColors.red : AppColors.primary,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
-                            Icons.add,
+                            isActive ? Icons.remove : Icons.add,
                             color: Colors.white,
                             size: 16.sp,
                           ),
@@ -83,7 +94,7 @@ class Topping extends StatelessWidget {
                 boxShadow: [AppShadwo.boxShadwo2],
               ),
               child: CustomNetworkImage(
-                img: topping.image,
+                img: widget.topping.image,
                 width: 140.w,
                 height: 60.h,
               ),

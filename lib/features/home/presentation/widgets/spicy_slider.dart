@@ -7,8 +7,8 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class SpicySlider extends StatefulWidget {
-  const SpicySlider({super.key});
-
+  const SpicySlider({super.key, required this.spicyValue});
+  final ValueNotifier<double> spicyValue;
   @override
   State<SpicySlider> createState() => _SpicySliderState();
 }
@@ -46,6 +46,7 @@ class _SpicySliderState extends State<SpicySlider> {
               setState(() {
                 _spicinessLevel = value;
               });
+              widget.spicyValue.value = value / 100;
             },
           ),
         ),

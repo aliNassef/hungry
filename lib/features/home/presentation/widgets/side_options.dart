@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/logging/app_logger.dart';
 import 'package:hungry/core/utils/app_shadwo.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
 import 'package:hungry/features/home/data/models/slide_option_model.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class SideOption extends StatelessWidget {
-  const SideOption({super.key, required this.sideOption});
+class SideOption extends StatefulWidget {
+  const SideOption({super.key, required this.sideOption, this.onTap});
   final SlideOptionModel sideOption;
+  final void Function()? onTap;
+
+  @override
+  State<SideOption> createState() => _SideOptionState();
+}
+
+class _SideOptionState extends State<SideOption> {
+  bool isActive = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,23 +48,26 @@ class SideOption extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        sideOption.name,
+                        widget.sideOption.name,
                         style: AppStyles.medium12.copyWith(
                           color: AppColors.light,
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          AppLogger.debug('Add Topping');
+                          widget.onTap?.call();
+                          setState(() {
+                            isActive = !isActive;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.all(2),
-                          decoration: const BoxDecoration(
-                            color: AppColors.primary,
+                          decoration: BoxDecoration(
+                            color: isActive ? AppColors.red : AppColors.primary,
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
-                            Icons.add,
+                            isActive ? Icons.remove : Icons.add,
                             color: Colors.white,
                             size: 16.sp,
                           ),
@@ -83,7 +93,7 @@ class SideOption extends StatelessWidget {
                 boxShadow: [AppShadwo.boxShadwo2],
               ),
               child: CustomNetworkImage(
-                img: sideOption.image,
+                img: widget.sideOption.image,
                 width: 140.w,
                 height: 60.h,
               ),

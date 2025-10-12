@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart'; 
+import 'package:gap/gap.dart';
 import 'package:hungry/features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import 'package:hungry/features/home/presentation/widgets/side_options.dart';
 import 'package:skeletonizer/skeletonizer.dart';
- import '../../../../core/widgets/custom_failure_widget.dart';
- import '../../data/models/slide_option_model.dart'; 
-class SideOptionsListItems extends StatelessWidget {
-  const SideOptionsListItems({super.key});
+import '../../../../core/logging/app_logger.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../../data/models/slide_option_model.dart';
 
+class SideOptionsListItems extends StatelessWidget {
+  const SideOptionsListItems({super.key, required this.sideOptions});
+  final ValueNotifier<List<int>> sideOptions;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<
@@ -61,7 +63,21 @@ class SideOptionsListItems extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.r),
                 ),
-                child: SideOption(sideOption: state.sideOptions[index]),
+                child: SideOption(
+                  sideOption: state.sideOptions[index],
+                  onTap: () {
+                    if (sideOptions.value.contains(
+                      state.sideOptions[index].id,
+                    )) {
+                      sideOptions.value.remove(state.sideOptions[index].id);
+                    } else {
+                      sideOptions.value.add(state.sideOptions[index].id);
+                    }
+                    AppLogger.info(
+                      'Selected Side Options: ${sideOptions.value.toString()}',
+                    );
+                  },
+                ),
               ),
             ),
           );
