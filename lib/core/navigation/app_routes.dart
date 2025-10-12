@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/features/home/data/models/meal_model.dart';
 import 'package:hungry/features/splash/presentation/view/splash_view.dart';
 
 import '../../features/auth/presentation/views/login_view.dart';
@@ -23,7 +24,8 @@ class AppRouter {
         page = const LayoutView();
         break;
       case MealDetailsView.routeName:
-        page = const MealDetailsView();
+        final meal = navArgs.data as MealModel;
+        page = MealDetailsView(meal: meal);
         break;
       case CheckoutView.routeName:
         page = const CheckoutView();

@@ -3,4 +3,6 @@ abstract class EndPoints {
   static const String register = 'register';
   static const String categories = 'categories';
   static const String products = 'products';
+  static const String toppings = 'toppings';
+  static const String sideOptions = 'side-options';
 }

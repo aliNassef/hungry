@@ -1,19 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/extensions/mediaquery_size.dart';
 import 'package:hungry/core/extensions/padding_extension.dart';
-import 'package:hungry/core/utils/app_assets.dart';
+import 'package:hungry/core/navigation/app_navigation.dart';
 import 'package:hungry/core/utils/app_styles.dart';
+import 'package:hungry/core/widgets/custom_network_image.dart';
+import 'package:hungry/features/home/data/models/cart_item_model.dart';
+import 'package:hungry/features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../data/models/meal_model.dart';
 import 'customize_your_meal_text_widget.dart';
+import 'side_options_list_items.dart';
 import 'spicy_slider.dart';
-import 'topping.dart';
+import 'toppings_list_items.dart';
 import 'total_price_and_add_to_cart.dart';
 
-class MealDetailsViewBody extends StatelessWidget {
-  const MealDetailsViewBody({super.key});
+class MealDetailsViewBody extends StatefulWidget {
+  const MealDetailsViewBody({super.key, required this.meal});
+  final MealModel meal;
 
+  @override
+  State<MealDetailsViewBody> createState() => _MealDetailsViewBodyState();
+}
+
+class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<GetToppingsAndSideOptionsCubit>().getToppings();
+    context.read<GetToppingsAndSideOptionsCubit>().getSideOptions();
+  }
+
+  ValueNotifier<double> spicyValue = ValueNotifier(0.5);
+  ValueNotifier<List<int>> toppings = ValueNotifier([]);
+  ValueNotifier<List<int>> sideOptions = ValueNotifier([]);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,25 +45,33 @@ class MealDetailsViewBody extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppNavigation.pop(context);
+            },
             icon: Icon(Icons.arrow_back_ios_new_outlined, size: 24.sp),
           ),
         ),
         Gap(4.h),
         Row(
           children: [
-            Image.asset(
-              AppImages.splashBurger,
-              height: context.height * .3,
-              width: context.width * 0.4,
+            Padding(
+              padding: EdgeInsets.only(left: 12.0.w),
+              child: CustomNetworkImage(
+                img: widget.meal.image,
+                height: context.height * .3,
+                width: context.width * 0.4,
+              ),
             ),
             Gap(context.width * .1.w),
             Expanded(
               child: Column(
                 children: [
-                  CustomizeYourMealTextWidget(),
+                  CustomizeYourMealTextWidget(
+                    name: widget.meal.name,
+                    desc: widget.meal.description,
+                  ),
                   Gap(16),
-                  SpicySlider(),
+                  SpicySlider(spicyValue: spicyValue),
                 ],
               ).withHorizontalPadding(16),
             ),
@@ -52,47 +82,28 @@ class MealDetailsViewBody extends StatelessWidget {
           'Toppings',
           style: AppStyles.semiBold16.copyWith(color: AppColors.brown),
         ).withHorizontalPadding(16),
-        SizedBox(
-          height: 140.h,
-          child: ListView.separated(
-            itemCount: 1,
-            scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => Gap(8.w),
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            itemBuilder: (__, index) => Container(
-              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Topping(),
-            ),
-          ),
-        ),
+        ToppingsListItems(toppings: toppings),
         Gap(32.h),
         Text(
           'Side options',
           style: AppStyles.semiBold16.copyWith(color: AppColors.brown),
         ).withHorizontalPadding(16),
-
-        SizedBox(
-          height: 140.h,
-          child: ListView.separated(
-            itemCount: 5,
-            scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => Gap(8.w),
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            itemBuilder: (__, index) => Container(
-              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Topping(),
-            ),
-          ),
-        ),
-
+        SideOptionsListItems(sideOptions: sideOptions),
         Gap(50.h),
-        TotalPriceAndAddToCart().withHorizontalPadding(16.r),
+        TotalPriceAndAddToCart(
+          price: widget.meal.price,
+          onPressed: () {
+            var cartItemModel = CartItemModel(
+              productId: widget.meal.id,
+              quantity: 1,
+              sideOptions: sideOptions.value,
+              spicy: spicyValue.value,
+              toppings: toppings.value,
+            );
+
+            // add to cart call api  
+          },
+        ).withHorizontalPadding(16.r),
         Gap(30.w),
       ],
     );

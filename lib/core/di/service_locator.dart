@@ -14,6 +14,7 @@ import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/presentation/controller/get_categories_cubit/get_categories_cubit.dart';
 import '../../features/home/presentation/controller/get_products_cubit/get_products_cubit.dart';
+import '../../features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import '../helpers/cache_helper.dart';
 
 final injector = GetIt.instance;
@@ -49,6 +50,9 @@ void _authFeature() {
 void _homeFeature() {
   injector.registerFactory(() => GetCategoriesCubit(injector.get<HomeRepo>()));
   injector.registerFactory(() => GetProductsCubit(injector.get<HomeRepo>()));
+  injector.registerFactory(
+    () => GetToppingsAndSideOptionsCubit(injector.get<HomeRepo>()),
+  );
   injector.registerLazySingleton<HomeRepo>(
     () => HomeRepoImpl(datasource: injector.get<HomeRemoteDatasource>()),
   );

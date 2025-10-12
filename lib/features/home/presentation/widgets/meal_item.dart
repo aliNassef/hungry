@@ -19,7 +19,7 @@ class MealCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _goToMealDetails(context);
+        _goToMealDetails(context, meal);
       },
       child: Container(
         alignment: Alignment.center,
@@ -61,11 +61,11 @@ class MealCardItem extends StatelessWidget {
     );
   }
 
-  void _goToMealDetails(BuildContext context) {
+  void _goToMealDetails(BuildContext context, MealModel meal) {
     AppNavigation.pushNamed(
       context,
       MealDetailsView.routeName,
-      arguments: NavArgs(animation: NavAnimation.fade),
+      arguments: NavArgs(animation: NavAnimation.fade, data: meal),
     );
   }
 }

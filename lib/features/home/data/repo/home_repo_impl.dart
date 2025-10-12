@@ -5,6 +5,8 @@ import 'package:hungry/core/api/errors/failure.dart';
 
 import 'package:hungry/features/home/data/models/category_model.dart';
 import 'package:hungry/features/home/data/models/meal_model.dart';
+import 'package:hungry/features/home/data/models/slide_option_model.dart';
+import 'package:hungry/features/home/data/models/topping_model.dart';
 
 import '../datasource/home_remote_datasource.dart';
 import 'home_repo.dart';
@@ -31,6 +33,26 @@ class HomeRepoImpl extends HomeRepo {
     try {
       final products = await _datasource.getProducts(categoryId: categoryId);
       return Right(products);
+    } on ServerException catch (failure) {
+      return Left(Failure(errMessage: failure.errorModel.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<SlideOptionModel>>> getSideOptions() async {
+    try {
+      final sideOptions = await _datasource.getSideOptions();
+      return Right(sideOptions);
+    } on ServerException catch (failure) {
+      return Left(Failure(errMessage: failure.errorModel.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ToppingModel>>> getToppings() async {
+    try {
+      final toppings = await _datasource.getToppings();
+      return Right(toppings);
     } on ServerException catch (failure) {
       return Left(Failure(errMessage: failure.errorModel.errorMessage));
     }

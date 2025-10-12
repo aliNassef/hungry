@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
- import 'package:hungry/core/utils/app_shadwo.dart';
+import 'package:hungry/core/utils/app_shadwo.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
-import 'package:hungry/features/home/data/models/topping_model.dart';
+import 'package:hungry/features/home/data/models/slide_option_model.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class Topping extends StatefulWidget {
-  const Topping({super.key, required this.topping, this.onTap});
-  final ToppingModel topping;
+class SideOption extends StatefulWidget {
+  const SideOption({super.key, required this.sideOption, this.onTap});
+  final SlideOptionModel sideOption;
   final void Function()? onTap;
 
   @override
-  State<Topping> createState() => _ToppingState();
+  State<SideOption> createState() => _SideOptionState();
 }
 
-class _ToppingState extends State<Topping> {
+class _SideOptionState extends State<SideOption> {
   bool isActive = false;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -49,7 +48,7 @@ class _ToppingState extends State<Topping> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        widget.topping.name,
+                        widget.sideOption.name,
                         style: AppStyles.medium12.copyWith(
                           color: AppColors.light,
                         ),
@@ -94,7 +93,7 @@ class _ToppingState extends State<Topping> {
                 boxShadow: [AppShadwo.boxShadwo2],
               ),
               child: CustomNetworkImage(
-                img: widget.topping.image,
+                img: widget.sideOption.image,
                 width: 140.w,
                 height: 60.h,
               ),

@@ -1,0 +1,33 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:hungry/features/home/data/models/topping_model.dart';
+import 'package:hungry/features/home/data/repo/home_repo.dart';
+
+import '../../../data/models/slide_option_model.dart';
+
+part 'get_toppings_and_side_options_state.dart';
+
+class GetToppingsAndSideOptionsCubit
+    extends Cubit<GetToppingsAndSideOptionsState> {
+  GetToppingsAndSideOptionsCubit(this._homeRepo)
+    : super(GetToppingsAndSideOptionsInitial());
+  final HomeRepo _homeRepo;
+
+  void getToppings() async {
+    emit(GetSideOptionsLoading());
+    final result = await _homeRepo.getToppings();
+    result.fold(
+      (failure) => emit(GetToppingsError(errMessage: failure.errMessage)),
+      (toppings) => emit(GetToppingsLoaded(toppings: toppings)),
+    );
+  }
+
+  void getSideOptions() async {
+    emit(GetSideOptionsLoading());
+    final result = await _homeRepo.getSideOptions();
+    result.fold(
+      (failure) => emit(GetSideOptionsError(errMessage: failure.errMessage)),
+      (sideOptions) => emit(GetSideOptionsLoaded(sideOptions: sideOptions)),
+    );
+  }
+}
