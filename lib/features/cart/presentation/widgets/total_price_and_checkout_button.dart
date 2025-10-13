@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
+import 'package:hungry/core/widgets/custom_failure_widget.dart';
+import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:hungry/features/cart/presentation/view/checkout_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';
 import '../../../../core/navigation/nav_args.dart';
@@ -27,21 +31,61 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
                 fontSize: 18.sp,
               ),
             ),
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: '\$',
-                    style: AppStyles.regular22.copyWith(
-                      color: AppColors.primary,
+            BlocBuilder<CartCubit, CartState>(
+              buildWhen: (previous, current) =>
+                  current is CartLoaded ||
+                  current is CartLoaded ||
+                  current is CartError,
+              builder: (context, state) {
+                if (state is CartLoaded) {
+                  return Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '\$',
+                          style: AppStyles.regular22.copyWith(
+                            color: AppColors.primary,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '${state.orderModel.totalPrice}',
+                          style: AppStyles.regular22.copyWith(
+                            color: AppColors.black,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  TextSpan(
-                    text: '2000',
-                    style: AppStyles.regular22.copyWith(color: AppColors.black),
-                  ),
-                ],
-              ),
+                  );
+                }
+                if (state is CartError) {
+                  return CustomFailureWidget(message: state.errMessage);
+                }
+                if (state is CartLoading) {
+                  return Skeletonizer(
+                    enabled: true,
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '\$',
+                            style: AppStyles.regular22.copyWith(
+                              color: AppColors.primary,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '2000',
+                            style: AppStyles.regular22.copyWith(
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+
+                return const SizedBox.shrink();
+              },
             ),
           ],
         ),

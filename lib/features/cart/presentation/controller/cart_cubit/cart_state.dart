@@ -21,3 +21,19 @@ final class CartAddError extends CartState {
   @override
   List<Object> get props => [errMessage];
 }
+
+final class CartLoading extends CartState {}
+
+final class CartLoaded extends CartState {
+  final OrderModel orderModel;
+  const CartLoaded({required this.orderModel});
+  @override
+  List<Object> get props => [orderModel];
+}
+
+final class CartError extends CartState {
+  final String errMessage;
+  const CartError({required this.errMessage});
+  @override
+  List<Object> get props => [errMessage];
+}
