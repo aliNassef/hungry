@@ -18,6 +18,11 @@ import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/presentation/controller/get_categories_cubit/get_categories_cubit.dart';
 import '../../features/home/presentation/controller/get_products_cubit/get_products_cubit.dart';
 import '../../features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
+import '../../features/profile/data/datasource/profile_local_datasource.dart';
+import '../../features/profile/data/datasource/profile_remote_datasource.dart';
+import '../../features/profile/data/repo/profile_repo.dart';
+import '../../features/profile/data/repo/profile_repo_impl.dart';
+import '../../features/profile/presentation/controller/profile_cubit/profile_cubit.dart';
 import '../helpers/cache_helper.dart';
 
 final injector = GetIt.instance;
@@ -27,6 +32,7 @@ void setupServiceLocator() async {
   _authFeature();
   _homeFeature();
   _setupCartFeature();
+  _profileFeature();
 }
 
 void _setupExternal() {
@@ -72,5 +78,21 @@ void _setupCartFeature() {
   );
   injector.registerLazySingleton<CartRemoteDataSource>(
     () => CartRemoteDataSourceImpl(apiService: injector.get<ApiService>()),
+  );
+}
+
+void _profileFeature() {
+  injector.registerFactory(() => ProfileCubit(injector.get<ProfileRepo>()));
+  injector.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(
+      localDatasource: injector.get<ProfileLocalDatasource>(),
+      remoteDatasource: injector.get<ProfileRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<ProfileLocalDatasource>(
+    () => ProfileLocalDatasourceImpl(cacheHelper: injector.get<CacheHelper>()),
+  );
+  injector.registerLazySingleton<ProfileRemoteDatasource>(
+    () => ProfileRemoteDatasourceImpl(apiService: injector.get<ApiService>()),
   );
 }
