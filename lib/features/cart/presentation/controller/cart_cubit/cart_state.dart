@@ -21,3 +21,49 @@ final class CartAddError extends CartState {
   @override
   List<Object> get props => [errMessage];
 }
+
+final class CartLoading extends CartState {}
+
+final class CartLoaded extends CartState {
+  final OrderModel orderModel;
+  const CartLoaded({required this.orderModel});
+  @override
+  List<Object> get props => [orderModel];
+}
+
+final class CartError extends CartState {
+  final String errMessage;
+  const CartError({required this.errMessage});
+  @override
+  List<Object> get props => [errMessage];
+}
+
+final class CartRemoveLoading extends CartState {
+  final int id;
+
+  const CartRemoveLoading({required this.id});
+  @override
+  List<Object> get props => [id];
+}
+
+final class CartRemoved extends CartState {
+  final int id;
+
+  const CartRemoved({required this.id});
+  @override
+  List<Object> get props => [id];
+}
+
+final class CartRemoveError extends CartState {
+  final String errMessage;
+
+  const CartRemoveError({required this.errMessage});
+  @override
+  List<Object> get props => [errMessage];
+} 
+
+
+
+
+
+//*  removed button => loading on remove button if done get list without this item emit (ccartloaded with this item )
