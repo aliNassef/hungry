@@ -32,4 +32,14 @@ class CartRepoImpl extends CartRepo {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> removeFromCarts({required int id}) async {
+    try {
+      await _dataSource.removeFromCart(id: id);
+      return right(null);
+    } on ServerException catch (e) {
+      return left(Failure(errMessage: e.errorModel.errorMessage));
+    }
+  }
 }

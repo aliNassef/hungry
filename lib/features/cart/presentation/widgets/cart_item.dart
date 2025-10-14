@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/extensions/mediaquery_size.dart';
 import 'package:hungry/features/cart/data/models/order_item_model.dart';
-
-import '../../../../core/utils/app_assets.dart';
+import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_shadwo.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -53,7 +53,35 @@ class CartItem extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: DefaultAppButton(text: 'Remove', onPressed: () {}),
+                      child: BlocBuilder<CartCubit, CartState>(
+                        buildWhen: (previous, current) =>
+                            current is CartRemoveError ||
+                            current is CartRemoveLoading ||
+                            current is CartRemoved,
+                        builder: (context, state) {
+                          return DefaultAppButton(
+                            text:
+                                (state is CartRemoveLoading &&
+                                    state.id == orderItem.itemId)
+                                ? ''
+                                : 'Remove',
+                            icon:
+                                (state is CartRemoveLoading &&
+                                    state.id == orderItem.itemId)
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppColors.light,
+                                    ),
+                                  )
+                                : SizedBox.shrink(),
+                            onPressed: () {
+                              context.read<CartCubit>().removeItemFromCart(
+                                orderItem.itemId,
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

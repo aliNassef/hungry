@@ -27,4 +27,17 @@ class CartCubit extends Cubit<CartState> {
       (orderModel) => emit(CartLoaded(orderModel: orderModel)),
     );
   }
+
+  void removeItemFromCart(int id) async {
+    emit(CartRemoveLoading(
+      id: id
+    ));
+    final removedOrfailure = await _cartRepo.removeFromCarts(id: id);
+    removedOrfailure.fold(
+      (failure) => emit(CartRemoveError(errMessage: failure.errMessage)),
+      (done) {
+        emit(CartRemoved(id: id));
+      },
+    );
+  }
 }

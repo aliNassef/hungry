@@ -7,4 +7,5 @@ abstract class EndPoints {
   static const String sideOptions = 'side-options';
   static const String addToCart = 'cart/add';
   static const String cart = 'cart';
+  static const String removeFromCart = 'cart/remove/';
 }

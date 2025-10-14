@@ -7,4 +7,5 @@ import '../models/cart_item_input_model.dart';
 abstract class CartRepo {
   Future<Either<Failure, void>> addToCart(CartItemInputModel cartItemModel);
   Future<Either<Failure, OrderModel>> getCartItems();
+  Future<Either<Failure, void>> removeFromCarts({required int id});
 }
