@@ -5,6 +5,14 @@ import 'package:gap/gap.dart';
 import 'package:hungry/core/extensions/mediaquery_size.dart';
 import 'package:hungry/core/extensions/padding_extension.dart';
 import 'package:hungry/features/cart/presentation/widgets/cart_item.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../core/logging/app_logger.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
+import '../../data/models/order_item_model.dart';
+import '../../data/models/order_model.dart';
+import '../controller/cart_cubit/cart_cubit.dart';
+import '../widgets/empty_cart_widget.dart';
 import '../widgets/total_price_and_checkout_button.dart';
 
 class CartView extends StatefulWidget {
