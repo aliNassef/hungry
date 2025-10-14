@@ -5,8 +5,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 
-class IncrementAndDecrementButton extends StatelessWidget {
+class IncrementAndDecrementButton extends StatefulWidget {
   const IncrementAndDecrementButton({super.key});
+
+  @override
+  State<IncrementAndDecrementButton> createState() =>
+      _IncrementAndDecrementButtonState();
+}
+
+class _IncrementAndDecrementButtonState
+    extends State<IncrementAndDecrementButton> {
+  int count = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +29,18 @@ class IncrementAndDecrementButton extends StatelessWidget {
             ),
             backgroundColor: WidgetStatePropertyAll(AppColors.primary),
           ),
-          onPressed: () {},
+          onPressed: () {
+            if (count > 1) setState(() => count--);
+          },
           icon: Icon(FontAwesomeIcons.minus, color: AppColors.light),
         ),
-        Text('1', style: AppStyles.medium18.copyWith(color: AppColors.brown)),
+        Text(
+          count.toString(),
+          style: AppStyles.medium18.copyWith(
+            color: AppColors.brown,
+            fontSize: 24.sp,
+          ),
+        ),
         IconButton.filled(
           style: ButtonStyle(
             shape: WidgetStatePropertyAll(
@@ -31,7 +48,9 @@ class IncrementAndDecrementButton extends StatelessWidget {
             ),
             backgroundColor: WidgetStatePropertyAll(AppColors.primary),
           ),
-          onPressed: () {},
+          onPressed: () {
+            setState(() => count++);
+          },
           icon: Icon(FontAwesomeIcons.plus, color: AppColors.light),
         ),
       ],

@@ -1,7 +1,7 @@
-import 'cart_item_model.dart';
+import 'cart_item_input_model.dart';
 
 class CartInputModel {
-  final List<CartItemModel> items;
+  final List<CartItemInputModel> items;
 
   CartInputModel({required this.items});
 
