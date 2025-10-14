@@ -5,7 +5,10 @@ abstract class EndPoints {
   static const String products = 'products';
   static const String toppings = 'toppings';
   static const String sideOptions = 'side-options';
+  static const String profile = 'profile';
   static const String addToCart = 'cart/add';
   static const String cart = 'cart';
   static const String removeFromCart = 'cart/remove/';
+  static const String logout = 'logout';
+  static const String updateProfile = 'update-profile';
 }

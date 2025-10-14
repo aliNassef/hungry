@@ -33,11 +33,10 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<UserModel> register(RegisterInputModel registerInputModel) async {
-     
     final response = await _apiService.post(
       EndPoints.register,
       data: registerInputModel.toMap(),
-      isFromData: true,
+      isFormData: true,
     );
 
     if (response.statusCode != 200 && response.statusCode != 201) {

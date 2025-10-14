@@ -97,12 +97,12 @@ class DioHelper extends ApiService {
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
+    bool isFormData = false,
   }) async {
     try {
       final response = await dio.post(
         path,
-        data: isFromData ? FormData.fromMap(data) : data,
+        data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
       return response;

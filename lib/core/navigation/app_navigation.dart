@@ -29,9 +29,11 @@ class AppNavigation {
     String routeName,
     bool Function(Route<dynamic>) predicate, {
     Object? arguments,
+    bool useAppRoute = false,
   }) {
     return Navigator.of(
       context,
+      rootNavigator: useAppRoute,
     ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
   }
 
