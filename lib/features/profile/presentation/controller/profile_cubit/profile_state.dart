@@ -32,3 +32,19 @@ final class ProfileLogoutSuccess extends ProfileState {}
 final class ProfileLogoutFailure extends ProfileState {}
 
 final class ProfileLogoutLoading extends ProfileState {}
+
+final class ProfileUpdateSuccess extends ProfileState {}
+
+final class ProfileUpdateFailure extends ProfileState {
+  final String errMessage;
+
+  const ProfileUpdateFailure({required this.errMessage});
+  @override
+  List<Object> get props => [errMessage];
+}
+
+final class ProfileUpdateLoading extends ProfileState {
+  const ProfileUpdateLoading();
+  @override
+  List<Object> get props => [];
+}

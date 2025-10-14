@@ -8,4 +8,5 @@ abstract class EndPoints {
   static const String profile = 'profile';
   static const String addToCart = 'cart/add';
   static const String logout = 'logout';
+  static const String updateProfile = 'update-profile';
 }

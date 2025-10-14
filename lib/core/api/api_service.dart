@@ -8,7 +8,7 @@ abstract class ApiService {
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
-    bool isFromData = false,
+    bool isFormData = false,
   });
 
   Future<dynamic> patch(

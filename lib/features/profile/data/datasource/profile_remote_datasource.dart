@@ -8,6 +8,7 @@ import '../models/profile_model.dart';
 abstract class ProfileRemoteDatasource {
   Future<void> logout();
   Future<ProfileModel> getProfileData();
+  Future<void> updateProfileData(ProfileModel profile);
 }
 
 class ProfileRemoteDatasourceImpl implements ProfileRemoteDatasource {
@@ -27,5 +28,18 @@ class ProfileRemoteDatasourceImpl implements ProfileRemoteDatasource {
   @override
   Future<void> logout() async {
     return await _apiService.post(EndPoints.logout);
+  }
+
+  @override
+  Future<void> updateProfileData(ProfileModel profile) async {
+    final response = await _apiService.post(
+      EndPoints.updateProfile,
+      data: profile.toJson(),
+      isFormData: true,
+    );
+    if (response.statusCode != 200) {
+      throw ServerException(ErrorModel.fromJson(response.data));
+    }
+    return;
   }
 }

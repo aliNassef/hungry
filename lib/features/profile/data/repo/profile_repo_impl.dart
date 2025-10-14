@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:hungry/core/api/errors/exceptions.dart';
 import 'package:hungry/core/api/errors/failure.dart';
 import 'package:hungry/features/profile/data/datasource/profile_local_datasource.dart';
@@ -35,6 +36,20 @@ class ProfileRepoImpl extends ProfileRepo {
       return Right(result);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updateProfileData({
+    required ProfileModel profile,
+  }) async {
+    try {
+      await _remoteDatasource.updateProfileData(profile);
+      return Right(null);
+    } on ServerException catch (e) {
+      return Left(Failure(errMessage: e.errorModel.errorMessage));
+    } on DioException catch (e) {
+      return Left(Failure(errMessage: e.toString()));
     }
   }
 }
