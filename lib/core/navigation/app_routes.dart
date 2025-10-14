@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/home/data/models/meal_model.dart';
-import 'package:hungry/features/splash/presentation/view/splash_view.dart';
+import '../../features/home/data/models/meal_model.dart';
+import '../../features/splash/presentation/view/splash_view.dart';
 
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/register_view.dart';

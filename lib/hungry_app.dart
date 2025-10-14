@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/di/service_locator.dart';
-import 'package:hungry/core/utils/app_theme.dart';
-import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
-import 'package:hungry/features/splash/presentation/controller/splash_cubit/splash_cubit.dart';
+import 'core/di/service_locator.dart';
+import 'core/utils/app_theme.dart';
+import 'features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'features/splash/presentation/controller/splash_cubit/splash_cubit.dart';
 import 'core/navigation/app_routes.dart';
 import 'features/splash/presentation/view/splash_view.dart';
 

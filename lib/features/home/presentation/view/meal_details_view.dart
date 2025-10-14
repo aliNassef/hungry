@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hungry/core/di/service_locator.dart';
+import '../../../../core/di/service_locator.dart';
 
 import '../../data/models/meal_model.dart';
 import '../controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';

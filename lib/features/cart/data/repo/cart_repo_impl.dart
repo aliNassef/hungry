@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:hungry/core/api/errors/exceptions.dart';
-import 'package:hungry/core/api/errors/failure.dart';
-import 'package:hungry/features/cart/data/datasource/cart_remote_datasource.dart';
-import 'package:hungry/features/cart/data/models/cart_item_model.dart';
-import 'package:hungry/features/cart/data/repo/cart_repo.dart';
+import '../../../../core/api/errors/exceptions.dart';
+import '../../../../core/api/errors/failure.dart';
+import '../datasource/cart_remote_datasource.dart';
+import '../models/cart_item_model.dart';
+import 'cart_repo.dart';
 
 class CartRepoImpl extends CartRepo {
   final CartRemoteDataSource _dataSource;

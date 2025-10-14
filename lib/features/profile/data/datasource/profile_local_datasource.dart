@@ -1,4 +1,4 @@
-import 'package:hungry/core/helpers/cache_helper.dart';
+import '../../../../core/helpers/cache_helper.dart';
 
 abstract class ProfileLocalDatasource {
   Future<void> clearCache();

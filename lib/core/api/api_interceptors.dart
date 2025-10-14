@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:hungry/app_constants.dart';
-import 'package:hungry/core/helpers/cache_helper.dart';
+import '../../app_constants.dart';
+import '../helpers/cache_helper.dart';
 
 class ApiInterceptor extends Interceptor {
   String? _token;

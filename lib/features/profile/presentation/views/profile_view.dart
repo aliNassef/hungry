@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hungry/core/di/service_locator.dart';
+import '../../../../core/di/service_locator.dart';
 
-import 'package:hungry/features/profile/presentation/controller/profile_cubit/profile_cubit.dart';
+import '../controller/profile_cubit/profile_cubit.dart';
 
 import '../widgets/profile_view_body.dart';
 

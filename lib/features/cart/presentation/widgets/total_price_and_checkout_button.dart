@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/navigation/app_navigation.dart';
-import 'package:hungry/features/cart/presentation/view/checkout_view.dart';
+import '../../../../core/navigation/app_navigation.dart';
+import '../view/checkout_view.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';
 import '../../../../core/navigation/nav_args.dart';

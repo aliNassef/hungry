@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/home/data/models/category_model.dart';
-import 'package:hungry/features/home/presentation/controller/get_categories_cubit/get_categories_cubit.dart';
-import 'package:hungry/features/home/presentation/controller/get_products_cubit/get_products_cubit.dart';
+import '../../data/models/category_model.dart';
+import '../controller/get_categories_cubit/get_categories_cubit.dart';
+import '../controller/get_products_cubit/get_products_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/widgets/custom_failure_widget.dart';

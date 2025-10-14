@@ -1,5 +1,5 @@
-import 'package:hungry/app_constants.dart';
-import 'package:hungry/core/api/errors/exceptions.dart';
+import '../../../../app_constants.dart';
+import '../../../../core/api/errors/exceptions.dart';
 
 import '../../../../core/api/api_interceptors.dart';
 import '../../../../core/helpers/cache_helper.dart';

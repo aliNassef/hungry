@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:hungry/core/api/errors/failure.dart';
+import '../../../../core/api/errors/failure.dart';
 
 import '../models/cart_item_model.dart';
 

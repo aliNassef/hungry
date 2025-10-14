@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hungry/features/profile/data/repo/profile_repo.dart';
+import '../../../data/repo/profile_repo.dart';
 
 import '../../../data/models/profile_model.dart';
 

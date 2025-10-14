@@ -1,8 +1,8 @@
-import 'package:hungry/core/api/api_service.dart';
-import 'package:hungry/core/api/end_ponits.dart';
-import 'package:hungry/core/api/errors/error_model.dart';
-import 'package:hungry/core/api/errors/exceptions.dart';
-import 'package:hungry/features/auth/data/models/register_input_model.dart';
+import '../../../../core/api/api_service.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/api/errors/error_model.dart';
+import '../../../../core/api/errors/exceptions.dart';
+import '../models/register_input_model.dart';
 
 import '../models/login_input_model.dart';
 import '../models/login_model.dart';

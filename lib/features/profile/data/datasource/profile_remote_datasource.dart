@@ -1,6 +1,6 @@
-import 'package:hungry/core/api/api_service.dart';
-import 'package:hungry/core/api/end_ponits.dart';
-import 'package:hungry/core/api/errors/exceptions.dart';
+import '../../../../core/api/api_service.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/api/errors/exceptions.dart';
 
 import '../../../../core/api/errors/error_model.dart';
 import '../models/profile_model.dart';

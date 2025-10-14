@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/helpers/image_picker_helper.dart';
-import 'package:hungry/core/navigation/nav_animation_enum.dart';
-import 'package:hungry/core/navigation/nav_args.dart';
-import 'package:hungry/core/widgets/default_app_button.dart';
-import 'package:hungry/features/auth/presentation/controller/cubit/auth_cubit.dart';
-import 'package:hungry/features/auth/presentation/views/login_view.dart';
+import '../../../../core/helpers/image_picker_helper.dart';
+import '../../../../core/navigation/nav_animation_enum.dart';
+import '../../../../core/navigation/nav_args.dart';
+import '../../../../core/widgets/default_app_button.dart';
+import '../controller/cubit/auth_cubit.dart';
+import '../views/login_view.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/navigation/app_navigation.dart';

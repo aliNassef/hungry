@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/extensions/mediaquery_size.dart';
-import 'package:hungry/core/extensions/padding_extension.dart';
-import 'package:hungry/features/cart/presentation/widgets/cart_item.dart';
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/extensions/padding_extension.dart';
+import '../widgets/cart_item.dart';
 import '../widgets/total_price_and_checkout_button.dart';
 
 class CartView extends StatelessWidget {

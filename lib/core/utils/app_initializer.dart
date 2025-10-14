@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/app_constants.dart';
-import 'package:hungry/core/api/api_interceptors.dart';
-import 'package:hungry/core/di/service_locator.dart';
-import 'package:hungry/core/utils/app_colors.dart';
+import '../../app_constants.dart';
+import '../api/api_interceptors.dart';
+import '../di/service_locator.dart';
+import 'app_colors.dart';
 
 import '../helpers/cache_helper.dart';
 import '../logging/app_logger.dart';

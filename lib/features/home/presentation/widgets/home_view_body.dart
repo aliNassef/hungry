@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/extensions/padding_extension.dart';
+import '../../../../core/extensions/padding_extension.dart';
 
 import '../widgets/category_home_list.dart';
 import '../widgets/custom_search_bar.dart';

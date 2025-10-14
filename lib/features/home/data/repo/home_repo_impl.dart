@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:hungry/core/api/errors/exceptions.dart';
+import '../../../../core/api/errors/exceptions.dart';
 
-import 'package:hungry/core/api/errors/failure.dart';
+import '../../../../core/api/errors/failure.dart';
 
-import 'package:hungry/features/home/data/models/category_model.dart';
-import 'package:hungry/features/home/data/models/meal_model.dart';
-import 'package:hungry/features/home/data/models/slide_option_model.dart';
-import 'package:hungry/features/home/data/models/topping_model.dart';
+import '../models/category_model.dart';
+import '../models/meal_model.dart';
+import '../models/slide_option_model.dart';
+import '../models/topping_model.dart';
 
 import '../datasource/home_remote_datasource.dart';
 import 'home_repo.dart';

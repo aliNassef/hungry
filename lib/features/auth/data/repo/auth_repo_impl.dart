@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:hungry/core/api/errors/failure.dart';
-import 'package:hungry/features/auth/data/datasource/auth_local_datasource.dart';
+import '../../../../core/api/errors/failure.dart';
+import '../datasource/auth_local_datasource.dart';
 
-import 'package:hungry/features/auth/data/models/login_input_model.dart';
+import '../models/login_input_model.dart';
 
-import 'package:hungry/features/auth/data/models/login_model.dart';
-import 'package:hungry/features/auth/data/models/register_input_model.dart';
+import '../models/login_model.dart';
+import '../models/register_input_model.dart';
 
 import '../../../../core/api/errors/exceptions.dart';
 import '../datasource/auth_remote_datasource.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/di/service_locator.dart';
-import 'package:hungry/core/extensions/padding_extension.dart';
+import '../../../../core/di/service_locator.dart';
+import '../../../../core/extensions/padding_extension.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../controller/cubit/auth_cubit.dart';
