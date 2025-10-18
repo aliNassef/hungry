@@ -27,4 +27,23 @@ class OrderHistoryModel extends Equatable {
 
   @override
   List<Object?> get props => [id, status, totalPrice, createdAt, productImage];
+
+  static List<OrderHistoryModel> dummy = [
+    OrderHistoryModel(
+      id: 1,
+      status: 'Delivered',
+      totalPrice: '25.00',
+      createdAt: '2023-10-01',
+      productImage:
+          'http://sonic-zdi0.onrender.com/storage/products/cheeseburger.jpg',
+    ),
+    OrderHistoryModel(
+      id: 1,
+      status: 'Delivered',
+      totalPrice: '25.00',
+      createdAt: '2023-10-01',
+      productImage:
+          'http://sonic-zdi0.onrender.com/storage/products/cheeseburger.jpg',
+    ),
+  ];
 }

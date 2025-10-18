@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/orders_history/data/datasource/order_history_remote_datasource.dart';
+import '../../features/orders_history/data/repo/order_history_repo.dart';
+import '../../features/orders_history/data/repo/order_history_repo_impl.dart';
+import '../../features/orders_history/presentation/controller/get_order_history_cubit/get_orders_history_cubit.dart';
 import '../api/api_service.dart';
 import '../api/dio_helper.dart';
 import '../../features/auth/data/datasource/auth_local_datasource.dart';
@@ -33,6 +37,7 @@ void setupServiceLocator() async {
   _homeFeature();
   _setupCartFeature();
   _profileFeature();
+  _ordersHistoryFeature();
 }
 
 void _setupExternal() {
@@ -94,5 +99,21 @@ void _profileFeature() {
   );
   injector.registerLazySingleton<ProfileRemoteDatasource>(
     () => ProfileRemoteDatasourceImpl(apiService: injector.get<ApiService>()),
+  );
+}
+
+void _ordersHistoryFeature() {
+  injector.registerFactory(
+    () => GetOrdersHistoryCubit(injector.get<OrderHistoryRepo>()),
+  );
+  injector.registerLazySingleton<OrderHistoryRepo>(
+    () => OrderHistoryRepoImpl(
+      remoteDatasource: injector.get<OrderHistoryRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<OrderHistoryRemoteDatasource>(
+    () => OrderHistoryRemoteDatasourceImpl(
+      apiService: injector.get<ApiService>(),
+    ),
   );
 }
