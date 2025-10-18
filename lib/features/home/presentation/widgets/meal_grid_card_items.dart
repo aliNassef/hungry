@@ -21,7 +21,9 @@ class MealGridCardItems extends StatelessWidget {
           current is GetProductsError,
       builder: (context, state) {
         if (state is GetProductsError) {
-          return CustomFailureWidget(message: state.errMessage);
+          return SliverToBoxAdapter(
+            child: CustomFailureWidget(message: state.errMessage),
+          );
         }
 
         if (state is GetProductsLoading) {

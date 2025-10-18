@@ -27,7 +27,7 @@ class ProfileRemoteDatasourceImpl implements ProfileRemoteDatasource {
 
   @override
   Future<void> logout() async {
-    return await _apiService.post(EndPoints.logout);
+      await _apiService.post(EndPoints.logout);
   }
 
   @override

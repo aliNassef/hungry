@@ -11,4 +11,5 @@ abstract class EndPoints {
   static const String removeFromCart = 'cart/remove/';
   static const String logout = 'logout';
   static const String updateProfile = 'update-profile';
+  static const String orders = 'orders';
 }

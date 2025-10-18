@@ -1,23 +1,23 @@
 abstract class ApiService {
-  Future<dynamic> get(
+  Future get(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
   });
-  Future<dynamic> post(
+  Future post(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
   });
 
-  Future<dynamic> patch(
+  Future patch(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   });
-  Future<dynamic> delete(
+  Future delete(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,

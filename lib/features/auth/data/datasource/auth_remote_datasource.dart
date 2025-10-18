@@ -1,7 +1,5 @@
 import '../../../../core/api/api_service.dart';
 import '../../../../core/api/end_ponits.dart';
-import '../../../../core/api/errors/error_model.dart';
-import '../../../../core/api/errors/exceptions.dart';
 import '../models/register_input_model.dart';
 
 import '../models/login_input_model.dart';
@@ -24,10 +22,6 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       data: loginInputModel.toMap(),
     );
 
-    if (response.statusCode != 200) {
-      throw ServerException(ErrorModel.fromJson(response.data));
-    }
-
     return UserModel.fromMap(response.data['data']);
   }
 
@@ -38,10 +32,6 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
       data: registerInputModel.toMap(),
       isFormData: true,
     );
-
-    if (response.statusCode != 200 && response.statusCode != 201) {
-      throw ServerException(ErrorModel.fromJson(response.data));
-    }
 
     return UserModel.fromMap(response.data['data']);
   }

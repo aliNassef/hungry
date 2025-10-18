@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
-import 'package:hungry/core/widgets/custom_failure_widget.dart';
 import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:hungry/features/cart/presentation/view/checkout_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -58,7 +57,7 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
                   );
                 }
                 if (state is CartError) {
-                  return CustomFailureWidget(message: state.errMessage);
+                  return SizedBox.shrink();
                 }
                 if (state is CartLoading) {
                   return Skeletonizer(

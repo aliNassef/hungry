@@ -26,16 +26,17 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
       );
       ApiInterceptor().setToken(token);
     } catch (e) {
-      throw CustomException(errorMessage: 'Failed to cache token: $e');
+      throw CustomException('Failed to cache token: $e');
     }
   }
 
   @override
   Future<String?> getCachedToken() async {
     try {
-      return await _cacheHelper.getData(AppConstants.TOKEN, secure: true) as String?;
+      return await _cacheHelper.getData(AppConstants.TOKEN, secure: true)
+          as String?;
     } catch (e) {
-      throw CustomException(errorMessage: 'No cached token found: $e');
+      throw CustomException('No cached token found: $e');
     }
   }
 

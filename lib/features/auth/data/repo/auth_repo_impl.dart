@@ -49,6 +49,7 @@ class AuthRepoImpl extends AuthRepo {
       return Left(Failure(errMessage: e.errorMessage));
     }
   }
+
   @override
   Future<bool> isLoggedIn() async {
     final token = await _authLocalDatasource.getCachedToken();
