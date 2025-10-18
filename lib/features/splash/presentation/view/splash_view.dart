@@ -61,7 +61,7 @@ class _SplashViewState extends State<SplashView> {
             );
           }
         },
-        child: SafeArea(child: SplashViewBody()),
+        child: SafeArea(bottom: false, child: SplashViewBody()),
       ),
     );
   }
