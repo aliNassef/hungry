@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/extensions/padding_extension.dart';
+import '../../../../core/logging/app_logger.dart';
 import '../../data/models/category_model.dart';
 import '../controller/get_categories_cubit/get_categories_cubit.dart';
 import '../controller/get_products_cubit/get_products_cubit.dart';
@@ -29,7 +31,10 @@ class _CategoryHomeListState extends State<CategoryHomeList> {
           current is GetCategoriesError,
       builder: (context, state) {
         if (state is GetCategoriesError) {
-          return CustomFailureWidget(message: state.errMessage);
+          AppLogger.error(state.errMessage);
+          return CustomFailureWidget(
+            message: state.errMessage,
+          ).withHorizontalPadding(16);
         }
         if (state is GetCategoriesLoading) {
           return Skeletonizer(

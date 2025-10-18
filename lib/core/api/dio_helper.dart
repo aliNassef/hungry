@@ -51,7 +51,7 @@ class DioHelper extends ApiService {
       );
       return response;
     } on DioException catch (e) {
-      handleDioException(e);
+      handleDioExceptions(e);
     }
   }
 
@@ -69,7 +69,7 @@ class DioHelper extends ApiService {
       );
       return response;
     } on DioException catch (e) {
-      handleDioException(e);
+      handleDioExceptions(e);
     }
   }
 
@@ -88,7 +88,7 @@ class DioHelper extends ApiService {
       );
       return response;
     } on DioException catch (e) {
-      handleDioException(e);
+      handleDioExceptions(e);
     }
   }
 
@@ -107,7 +107,7 @@ class DioHelper extends ApiService {
       );
       return response;
     } on DioException catch (e) {
-      handleDioException(e);
+      handleDioExceptions(e);
     }
   }
 }

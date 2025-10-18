@@ -47,7 +47,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     );
 
     if (response.statusCode != 200) {
-      throw ServerException(ErrorModel.fromJson(response.body));
+      throw ServerException(ErrorModel.fromJson(response.data));
     }
   }
 }

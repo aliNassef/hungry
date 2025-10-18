@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 import '../utils/app_styles.dart';
 
@@ -8,9 +10,16 @@ class CustomFailureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        '$message, please try again later.',
-        style: AppStyles.bold24.copyWith(color: Colors.red),
+      child: Column(
+        children: [
+          Gap(100.h),
+          Icon(Icons.error, color: Colors.red, size: 50),
+          Gap(20.h),
+          Text(
+            '$message, please try again later.',
+            style: AppStyles.regular16.copyWith(color: Colors.black54),
+          ),
+        ],
       ),
     );
   }
