@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
           BlocProvider(create: (context) => injector<GetCategoriesCubit>()),
           BlocProvider(create: (context) => injector<GetProductsCubit>()),
         ],
-        child: HomeViewBody(),
+        child: const HomeViewBody(),
       ),
     );
   }

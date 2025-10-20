@@ -13,7 +13,7 @@ class CustomFailureWidget extends StatelessWidget {
       child: Column(
         children: [
           Gap(100.h),
-          Icon(Icons.error, color: Colors.red, size: 50),
+          const Icon(Icons.error, color: Colors.red, size: 50),
           Gap(20.h),
           Text(
             '$message, please try again later.',

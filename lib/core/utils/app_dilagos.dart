@@ -31,7 +31,7 @@ abstract class AppDilagos {
               color: Colors.white,
             ),
             alignment: Alignment.center,
-            child: CircularProgressIndicator.adaptive(
+            child: const CircularProgressIndicator.adaptive(
               backgroundColor: AppColors.primary,
             ),
           ),

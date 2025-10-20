@@ -10,7 +10,7 @@ class AppTheme {
     textTheme: GoogleFonts.robotoTextTheme(),
     primarySwatch: Colors.green, // Your app's primary theme color
     // This is where you customize the selection colors
-    textSelectionTheme: TextSelectionThemeData(
+    textSelectionTheme: const TextSelectionThemeData(
       selectionColor: AppColors.lightGrey,
       selectionHandleColor: AppColors.lightGrey,
       cursorColor: AppColors.light,

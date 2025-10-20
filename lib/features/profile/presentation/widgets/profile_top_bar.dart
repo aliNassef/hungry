@@ -5,7 +5,7 @@ class ProfileTopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Icon(Icons.arrow_back_ios_new_outlined, color: Colors.white),

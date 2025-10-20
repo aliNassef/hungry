@@ -16,7 +16,7 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       (failure) => emit(GetCategoriesError(errMessage: failure.errMessage)),
 
       (categories) {
-        categories.insert(0, CategoryModel(id: 0, name: 'All'));
+        categories.insert(0, const CategoryModel(id: 0, name: 'All'));
         emit(GetCategoriesLoaded(categories: categories));
       },
     );

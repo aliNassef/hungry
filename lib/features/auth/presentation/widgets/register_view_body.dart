@@ -65,7 +65,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Gap(40.h),
-          LogoWidget(),
+          const LogoWidget(),
           Text(
             'Create Account',
             style: AppStyles.medium18.copyWith(color: AppColors.light),
@@ -127,7 +127,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             onTap: () => AppNavigation.pushNamed(
               context,
               LoginView.routeName,
-              arguments: NavArgs(animation: NavAnimation.fade),
+              arguments: const NavArgs(animation: NavAnimation.fade),
             ),
           ),
           Gap(32.h),
@@ -160,7 +160,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             context,
             LayoutView.routeName,
             (route) => false,
-            arguments: NavArgs(animation: NavAnimation.fade),
+            arguments: const NavArgs(animation: NavAnimation.fade),
           );
           AppDilagos.showToast(text: 'Register Success');
         }

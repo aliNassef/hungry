@@ -27,12 +27,12 @@ class _IncrementAndDecrementButtonState
             shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
             ),
-            backgroundColor: WidgetStatePropertyAll(AppColors.primary),
+            backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
           ),
           onPressed: () {
             if (count > 1) setState(() => count--);
           },
-          icon: Icon(FontAwesomeIcons.minus, color: AppColors.light),
+          icon: const Icon(FontAwesomeIcons.minus, color: AppColors.light),
         ),
         Text(
           count.toString(),
@@ -46,12 +46,12 @@ class _IncrementAndDecrementButtonState
             shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
             ),
-            backgroundColor: WidgetStatePropertyAll(AppColors.primary),
+            backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
           ),
           onPressed: () {
             setState(() => count++);
           },
-          icon: Icon(FontAwesomeIcons.plus, color: AppColors.light),
+          icon: const Icon(FontAwesomeIcons.plus, color: AppColors.light),
         ),
       ],
     );

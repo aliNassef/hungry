@@ -34,16 +34,18 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
-          child: FadeInRight(child: HomeTopBar().withHorizontalPadding(16)),
+          child: FadeInRight(
+            child: const HomeTopBar().withHorizontalPadding(16),
+          ),
         ),
         SliverGap(17.h),
-        SliverToBoxAdapter(child: FadeInDown(child: CustomSearchBar())),
-        SliverGap(40),
-        SliverToBoxAdapter(child: CategoryHomeList()),
-        SliverGap(40),
+        SliverToBoxAdapter(child: FadeInDown(child: const CustomSearchBar())),
+        const SliverGap(40),
+        const SliverToBoxAdapter(child: CategoryHomeList()),
+        const SliverGap(40),
         SliverPadding(
           padding: EdgeInsets.all(16.r),
-          sliver: MealGridCardItems(),
+          sliver: const MealGridCardItems(),
         ),
       ],
     );

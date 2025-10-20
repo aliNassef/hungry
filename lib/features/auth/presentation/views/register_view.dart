@@ -18,7 +18,7 @@ class RegisterView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => injector<AuthCubit>(),
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: const SingleChildScrollView(
             child: RegisterViewBody(),
           ).withHorizontalPadding(16.w),
         ),

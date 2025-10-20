@@ -50,7 +50,7 @@ class _CategoryHomeListState extends State<CategoryHomeList> {
                   return FadeInLeft(
                     animate: true,
                     delay: Duration(milliseconds: 100 * index),
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     child: CategoryItem(
                       isActive: true,
                       category: CategoryModel.dummy[index],
@@ -73,7 +73,7 @@ class _CategoryHomeListState extends State<CategoryHomeList> {
                 return FadeInLeft(
                   animate: true,
                   delay: Duration(milliseconds: 100 * index),
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: GestureDetector(
                     onTap: () {
                       setState(() {

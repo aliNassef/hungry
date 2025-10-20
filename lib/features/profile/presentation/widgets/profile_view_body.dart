@@ -80,7 +80,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               child: Column(
                 children: [
                   Gap(16.h),
-                  ProfileTopBar(),
+                  const ProfileTopBar(),
                   Gap(24.h),
                   _buildProfileImage(state),
                   Gap(32.h),
@@ -115,7 +115,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                     indent: 24.w,
                     endIndent: 24.w,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     children: [
                       Expanded(
@@ -127,7 +127,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                         ),
                       ),
                       Gap(16.w),
-                      Expanded(child: LogoutButtonBloclistener()),
+                      const Expanded(child: LogoutButtonBloclistener()),
                     ],
                   ),
                   Gap(30.w),
@@ -135,7 +135,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               ),
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );
@@ -192,7 +192,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
       child: Column(
         children: [
           Gap(16.h),
-          ProfileTopBar(),
+          const ProfileTopBar(),
           Gap(24.h),
           Container(
             height: 120.h,
@@ -201,17 +201,22 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               color: Colors.white,
               boxShadow: [AppShadwo.boxShadwo3],
               borderRadius: BorderRadius.circular(12.r),
-              image: DecorationImage(image: AssetImage(AppImages.splashBurger)),
+              image: const DecorationImage(
+                image: AssetImage(AppImages.splashBurger),
+              ),
             ),
           ),
           Gap(32.h),
-          CustomTextFormField(label: 'Name', hint: 'John Doe'),
+          const CustomTextFormField(label: 'Name', hint: 'John Doe'),
           Gap(32.h),
-          CustomTextFormField(label: 'Email', hint: 'John Doe'),
+          const CustomTextFormField(label: 'Email', hint: 'John Doe'),
           Gap(32.h),
-          CustomTextFormField(label: 'Delivery address', hint: 'John Doe'),
+          const CustomTextFormField(
+            label: 'Delivery address',
+            hint: 'John Doe',
+          ),
           Gap(32.h),
-          CustomTextFormField(label: 'Password', hint: 'John Doe'),
+          const CustomTextFormField(label: 'Password', hint: 'John Doe'),
           Gap(32.h),
           Divider(
             color: AppColors.light,
@@ -219,7 +224,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
             indent: 24.w,
             endIndent: 24.w,
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             children: [
               Expanded(

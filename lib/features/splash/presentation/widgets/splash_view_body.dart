@@ -13,7 +13,7 @@ class SplashViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Spacer(),
+        const Spacer(),
         Text(
           'Hungry?',
           style: GoogleFonts.luckiestGuy(
@@ -23,7 +23,7 @@ class SplashViewBody extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        Spacer(),
+        const Spacer(),
         Image.asset(
           AppImages.splashBurger,
           height: context.height * 1 / 3,

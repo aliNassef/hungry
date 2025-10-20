@@ -56,7 +56,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Gap(40.h),
-          LogoWidget(),
+          const LogoWidget(),
           Text(
             'Welcome Back, Please Login',
             style: AppStyles.medium18.copyWith(color: AppColors.light),
@@ -83,7 +83,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             onTap: () => AppNavigation.pushNamed(
               context,
               RegisterView.routeName,
-              arguments: NavArgs(animation: NavAnimation.fade),
+              arguments: const NavArgs(animation: NavAnimation.fade),
             ),
           ),
         ],
@@ -111,7 +111,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             context,
             LayoutView.routeName,
             (route) => false,
-            arguments: NavArgs(animation: NavAnimation.fade),
+            arguments: const NavArgs(animation: NavAnimation.fade),
           );
           AppDilagos.showToast(text: 'Login Success');
         }

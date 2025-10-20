@@ -14,7 +14,7 @@ class ProfileView extends StatelessWidget {
     return SafeArea(
       child: BlocProvider(
         create: (context) => injector<ProfileCubit>()..getProfileData(),
-        child: ProfileViewBody(),
+        child: const ProfileViewBody(),
       ),
     );
   }

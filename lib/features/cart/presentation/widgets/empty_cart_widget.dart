@@ -17,7 +17,7 @@ class EmptyCartWidget extends StatelessWidget {
         context.read<CartCubit>().getCartItems();
       },
       child: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             Gap(100.h),

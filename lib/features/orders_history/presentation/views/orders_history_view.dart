@@ -13,7 +13,7 @@ class OrdersHistoryView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           injector<GetOrdersHistoryCubit>()..getOrdersHistory(),
-      child: SafeArea(child: OrderHistoryViewBody()),
+      child: const SafeArea(child: OrderHistoryViewBody()),
     );
   }
 }

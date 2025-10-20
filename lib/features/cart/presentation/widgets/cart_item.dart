@@ -48,8 +48,8 @@ class CartItem extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                IncrementAndDecrementButton(),
-                Spacer(),
+                const IncrementAndDecrementButton(),
+                const Spacer(),
                 Row(
                   children: [
                     Expanded(
@@ -68,12 +68,12 @@ class CartItem extends StatelessWidget {
                             icon:
                                 (state is CartRemoveLoading &&
                                     state.id == orderItem.itemId)
-                                ? Center(
+                                ? const Center(
                                     child: CircularProgressIndicator(
                                       color: AppColors.light,
                                     ),
                                   )
-                                : SizedBox.shrink(),
+                                : const SizedBox.shrink(),
                             onPressed: () {
                               context.read<CartCubit>().removeItemFromCart(
                                 orderItem.itemId,

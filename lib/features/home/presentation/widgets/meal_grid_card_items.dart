@@ -40,7 +40,7 @@ class MealGridCardItems extends StatelessWidget {
                 return FadeInLeft(
                   animate: true,
                   delay: Duration(milliseconds: 100 * index),
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: MealCardItem(meal: MealModel.dummy[index]),
                 );
               },
@@ -84,7 +84,7 @@ class MealGridCardItems extends StatelessWidget {
               return FadeInLeft(
                 animate: true,
                 delay: Duration(milliseconds: 100 * index),
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 child: MealCardItem(meal: meal),
               );
             },

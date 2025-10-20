@@ -74,7 +74,7 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
                     name: widget.meal.name,
                     desc: widget.meal.description,
                   ),
-                  Gap(16),
+                  const Gap(16),
                   SpicySlider(spicyValue: spicyValue),
                 ],
               ).withHorizontalPadding(16),

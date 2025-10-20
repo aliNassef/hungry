@@ -23,35 +23,35 @@ class _LayoutViewState extends State<LayoutView> {
     return PersistentTabView(
       tabs: [
         PersistentTabConfig(
-          screen: HomeView(),
+          screen: const HomeView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: FaIcon(FontAwesomeIcons.houseChimney),
+            icon: const FaIcon(FontAwesomeIcons.houseChimney),
           ),
         ),
         PersistentTabConfig(
-          screen: CartView(),
+          screen: const CartView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: FaIcon(FontAwesomeIcons.cartShopping),
+            icon: const FaIcon(FontAwesomeIcons.cartShopping),
           ),
         ),
         PersistentTabConfig(
-          screen: OrdersHistoryView(),
+          screen: const OrdersHistoryView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: FaIcon(FontAwesomeIcons.receipt),
+            icon: const FaIcon(FontAwesomeIcons.receipt),
           ),
         ),
         PersistentTabConfig(
-          screen: ProfileView(),
+          screen: const ProfileView(),
           item: ItemConfig(
             activeForegroundColor: AppColors.light,
             activeColorSecondary: AppColors.light,
-            icon: FaIcon(FontAwesomeIcons.user),
+            icon: const FaIcon(FontAwesomeIcons.user),
           ),
         ),
       ],

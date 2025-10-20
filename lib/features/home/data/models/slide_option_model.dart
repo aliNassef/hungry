@@ -16,17 +16,17 @@ class SlideOptionModel {
     );
   }
   static List<SlideOptionModel> dummy = [
-    SlideOptionModel(
+    const SlideOptionModel(
       id: 1,
       name: 'Tomato',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',
     ),
-    SlideOptionModel(
+    const SlideOptionModel(
       id: 2,
       name: 'Lettuce',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',
     ),
-    SlideOptionModel(
+    const SlideOptionModel(
       id: 3,
       name: 'Cheese',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',

@@ -57,7 +57,7 @@ class OrderHistoryItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                Gap(12),
+                const Gap(12),
                 // Row for Total Price
                 Row(
                   children: [

@@ -6,13 +6,12 @@ class CategoryModel {
     return CategoryModel(name: json['name'], id: json['id']);
   }
 
-
   static List<CategoryModel> dummy = [
-    CategoryModel(name: 'All', id: 0),
-    CategoryModel(name: 'Pizza', id: 1),
-    CategoryModel(name: 'Burger', id: 2),
-    CategoryModel(name: 'Hot Dog', id: 3),
-    CategoryModel(name: 'Drink', id: 4),
-    CategoryModel(name: 'Donut', id: 5),
+    const CategoryModel(name: 'All', id: 0),
+    const CategoryModel(name: 'Pizza', id: 1),
+    const CategoryModel(name: 'Burger', id: 2),
+    const CategoryModel(name: 'Hot Dog', id: 3),
+    const CategoryModel(name: 'Drink', id: 4),
+    const CategoryModel(name: 'Donut', id: 5),
   ];
 }

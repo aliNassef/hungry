@@ -36,11 +36,11 @@ class HomeTopBar extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           width: 60.w,
           height: 60.h,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.primary,
           ),

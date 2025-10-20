@@ -45,7 +45,7 @@ class ProfileRepoImpl extends ProfileRepo {
   }) async {
     try {
       await _remoteDatasource.updateProfileData(profile);
-      return Right(null);
+      return const Right(null);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     } on DioException catch (e) {

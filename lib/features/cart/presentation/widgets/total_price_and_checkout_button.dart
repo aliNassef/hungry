@@ -57,7 +57,7 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
                   );
                 }
                 if (state is CartError) {
-                  return SizedBox.shrink();
+                  return const SizedBox.shrink();
                 }
                 if (state is CartLoading) {
                   return Skeletonizer(
@@ -105,7 +105,7 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
     AppNavigation.pushNamed(
       context,
       CheckoutView.routeName,
-      arguments: NavArgs(animation: NavAnimation.fade),
+      arguments: const NavArgs(animation: NavAnimation.fade),
       useAppRoute: true,
     );
   }

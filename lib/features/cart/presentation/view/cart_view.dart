@@ -51,7 +51,7 @@ class _CartViewState extends State<CartView> {
                   'cartMeals length after removal: ${cartMeals.length}',
                 );
                 if (cartMeals.isEmpty) {
-                  return EmptyCartWidget();
+                  return const EmptyCartWidget();
                 }
                 return _buildCartList(context, cartMeals);
               }
@@ -66,16 +66,16 @@ class _CartViewState extends State<CartView> {
                 return CustomFailureWidget(message: state.errMessage);
               } else if (state is CartLoaded) {
                 if (state.orderModel.items.isEmpty) {
-                  return EmptyCartWidget();
+                  return const EmptyCartWidget();
                 }
                 cartMeals = state.orderModel.items;
                 return _buildCartList(context, cartMeals);
               }
-              return SizedBox.shrink();
+              return const SizedBox.shrink();
             },
           ),
-          Spacer(),
-          TotalpriceAndCheckoutButton(),
+          const Spacer(),
+          const TotalpriceAndCheckoutButton(),
           Gap(16.h),
         ],
       ).withHorizontalPadding(16.r),
@@ -97,7 +97,7 @@ class _CartViewState extends State<CartView> {
             context.read<CartCubit>().getCartItems();
           },
           child: ListView.separated(
-            physics: AlwaysScrollableScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(vertical: 16.h),
             itemBuilder: (__, index) {
               return SizedBox(

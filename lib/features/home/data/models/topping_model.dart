@@ -17,17 +17,17 @@ class ToppingModel {
   }
 
   static List<ToppingModel> dummy = [
-    ToppingModel(
+    const ToppingModel(
       id: 1,
       name: 'Tomato',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',
     ),
-    ToppingModel(
+    const ToppingModel(
       id: 2,
       name: 'Lettuce',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',
     ),
-    ToppingModel(
+    const ToppingModel(
       id: 3,
       name: 'Cheese',
       image: 'http://sonic-zdi0.onrender.com/storage/sides/coleslaw.png',

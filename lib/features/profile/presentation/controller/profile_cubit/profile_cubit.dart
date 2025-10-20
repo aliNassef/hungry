@@ -27,8 +27,9 @@ class ProfileCubit extends Cubit<ProfileState> {
       (r) => emit(ProfileLogoutSuccess()),
     );
   }
+
   void updateProfileData(ProfileModel profile) async {
-    emit(ProfileUpdateLoading());
+    emit(const ProfileUpdateLoading());
     final result = await _profileRepo.updateProfileData(profile: profile);
     result.fold(
       (l) => emit(ProfileUpdateFailure(errMessage: l.toString())),

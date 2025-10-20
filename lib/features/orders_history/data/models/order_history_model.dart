@@ -29,7 +29,7 @@ class OrderHistoryModel extends Equatable {
   List<Object?> get props => [id, status, totalPrice, createdAt, productImage];
 
   static List<OrderHistoryModel> dummy = [
-    OrderHistoryModel(
+    const OrderHistoryModel(
       id: 1,
       status: 'Delivered',
       totalPrice: '25.00',
@@ -37,7 +37,7 @@ class OrderHistoryModel extends Equatable {
       productImage:
           'http://sonic-zdi0.onrender.com/storage/products/cheeseburger.jpg',
     ),
-    OrderHistoryModel(
+    const OrderHistoryModel(
       id: 1,
       status: 'Delivered',
       totalPrice: '25.00',

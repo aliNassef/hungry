@@ -12,7 +12,7 @@ class CheckoutView extends StatelessWidget {
   static const routeName = 'checkout';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: CheckoutViewBody()));
+    return const Scaffold(body: SafeArea(child: CheckoutViewBody()));
   }
 }
 
@@ -28,7 +28,7 @@ class CheckoutViewBody extends StatelessWidget {
         InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: () {},
-          child: Icon(Icons.arrow_back_ios_new),
+          child: const Icon(Icons.arrow_back_ios_new),
         ),
         Gap(16.h),
 
@@ -40,11 +40,11 @@ class CheckoutViewBody extends StatelessWidget {
           ),
         ),
         Gap(20.h),
-        CheckoutPriceInfoDetails(desc: 'Order', price: '\$16.48'),
-        CheckoutPriceInfoDetails(desc: 'Taxes', price: '\$16.48'),
-        CheckoutPriceInfoDetails(desc: 'Delivery fees', price: '\$16.48'),
+        const CheckoutPriceInfoDetails(desc: 'Order', price: '\$16.48'),
+        const CheckoutPriceInfoDetails(desc: 'Taxes', price: '\$16.48'),
+        const CheckoutPriceInfoDetails(desc: 'Delivery fees', price: '\$16.48'),
         Gap(9.h),
-        Divider(indent: 16.w, endIndent: 16.w, color: Color(0xffF0F0F0)),
+        Divider(indent: 16.w, endIndent: 16.w, color: const Color(0xffF0F0F0)),
         Gap(9.h),
         Row(
           children: [
@@ -55,7 +55,7 @@ class CheckoutViewBody extends StatelessWidget {
                 color: AppColors.brown,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               '\$18.19',
               style: AppStyles.semiBold16.copyWith(
@@ -75,7 +75,7 @@ class CheckoutViewBody extends StatelessWidget {
                 color: AppColors.brown,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               '15 - 30 mins',
               style: AppStyles.semiBold16.copyWith(
@@ -85,7 +85,7 @@ class CheckoutViewBody extends StatelessWidget {
             ),
           ],
         ).withHorizontalPadding(10.r),
-        Spacer(),
+        const Spacer(),
         DefaultAppButton(text: 'Pay now', onPressed: () {}),
         Gap(30.h),
       ],
@@ -111,7 +111,7 @@ class CheckoutPriceInfoDetails extends StatelessWidget {
             color: AppColors.lightGrey,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Text(
           price,
           style: AppStyles.semiBold16.copyWith(

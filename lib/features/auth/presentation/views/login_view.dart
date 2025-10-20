@@ -18,7 +18,7 @@ class LoginView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => injector<AuthCubit>(),
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: const SingleChildScrollView(
             child: LoginViewBody(),
           ).withHorizontalPadding(16.w),
         ),

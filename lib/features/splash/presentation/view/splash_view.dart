@@ -46,6 +46,8 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: BlocListener<SplashCubit, SplashState>(
+        listenWhen: (previous, current) =>
+            current is Authenticated || current is UnAuthenticated,
         listener: (context, state) {
           if (state is Authenticated) {
             AppNavigation.pushAndRemoveUntil(
@@ -61,7 +63,7 @@ class _SplashViewState extends State<SplashView> {
             );
           }
         },
-        child: SafeArea(bottom: false, child: SplashViewBody()),
+        child: const SafeArea(bottom: false, child: SplashViewBody()),
       ),
     );
   }

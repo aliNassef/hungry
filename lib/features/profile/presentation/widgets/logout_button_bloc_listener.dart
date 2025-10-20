@@ -15,6 +15,10 @@ class LogoutButtonBloclistener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ProfileCubit, ProfileState>(
+      listenWhen: (previous, current) =>
+          current is ProfileLogoutLoading ||
+          current is ProfileLogoutSuccess ||
+          current is ProfileLogoutFailure,
       listener: (context, state) {
         if (state is ProfileLogoutSuccess) {
           AppNavigation.pop(context, useAppRoute: true);
