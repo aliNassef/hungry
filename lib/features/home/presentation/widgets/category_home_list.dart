@@ -13,15 +13,9 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/widgets/custom_failure_widget.dart';
 import 'category_item.dart';
 
-class CategoryHomeList extends StatefulWidget {
+class CategoryHomeList extends StatelessWidget {
   const CategoryHomeList({super.key});
 
-  @override
-  State<CategoryHomeList> createState() => _CategoryHomeListState();
-}
-
-class _CategoryHomeListState extends State<CategoryHomeList> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
@@ -76,9 +70,9 @@ class _CategoryHomeListState extends State<CategoryHomeList> {
                   duration: const Duration(milliseconds: 300),
                   child: GestureDetector(
                     onTap: () {
-                      setState(() {
-                        _currentIndex = index;
-                      });
+                      context.read<GetCategoriesCubit>().selectCategoryIndex(
+                        index,
+                      );
                       if (index == 0) {
                         context.read<GetProductsCubit>().getProducts();
                         return;
@@ -88,7 +82,7 @@ class _CategoryHomeListState extends State<CategoryHomeList> {
                       );
                     },
                     child: CategoryItem(
-                      isActive: index == _currentIndex,
+                      isActive: index == state.selectedCategoryIndex,
                       category: state.categories[index],
                     ),
                   ),
