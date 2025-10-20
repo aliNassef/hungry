@@ -13,11 +13,23 @@ final class GetCategoriesLoading extends GetCategoriesState {}
 
 final class GetCategoriesLoaded extends GetCategoriesState {
   final List<CategoryModel> categories;
+  final int selectedCategoryIndex;
 
-  const GetCategoriesLoaded({required this.categories});
+  const GetCategoriesLoaded({
+    required this.categories,
+    this.selectedCategoryIndex = 0,
+  });
+
+  GetCategoriesLoaded copyWith({int? selectedCategoryIndex}) {
+    return GetCategoriesLoaded(
+      categories: categories,
+      selectedCategoryIndex:
+          selectedCategoryIndex ?? this.selectedCategoryIndex,
+    );
+  }
 
   @override
-  List<Object> get props => [categories];
+  List<Object> get props => [categories, selectedCategoryIndex];
 }
 
 final class GetCategoriesError extends GetCategoriesState {

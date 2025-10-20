@@ -21,4 +21,11 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       },
     );
   }
+
+  void selectCategoryIndex(int index) {
+    final currentState = state;
+    if (currentState is GetCategoriesLoaded) {
+      emit(currentState.copyWith(selectedCategoryIndex: index));
+    }
+  }
 }
