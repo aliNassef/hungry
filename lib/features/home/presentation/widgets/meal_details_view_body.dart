@@ -7,7 +7,7 @@ import 'package:hungry/core/extensions/padding_extension.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
 import 'package:hungry/core/utils/app_styles.dart';
 import 'package:hungry/core/widgets/custom_network_image.dart';
- import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:hungry/features/home/presentation/controller/get_toppings_and_side_optionscubit/get_toppings_and_side_options_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_dilagos.dart';
@@ -31,8 +31,10 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
   @override
   void initState() {
     super.initState();
-    context.read<GetToppingsAndSideOptionsCubit>().getToppings();
-    context.read<GetToppingsAndSideOptionsCubit>().getSideOptions();
+    Future.wait([
+      context.read<GetToppingsAndSideOptionsCubit>().getToppings(),
+      context.read<GetToppingsAndSideOptionsCubit>().getSideOptions(),
+    ]);
   }
 
   ValueNotifier<double> spicyValue = ValueNotifier(0.5);

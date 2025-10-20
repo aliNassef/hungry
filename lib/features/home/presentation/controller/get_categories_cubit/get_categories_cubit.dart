@@ -9,7 +9,7 @@ part 'get_categories_state.dart';
 class GetCategoriesCubit extends Cubit<GetCategoriesState> {
   GetCategoriesCubit(this._homeRepo) : super(GetCategoriesInitial());
   final HomeRepo _homeRepo;
-  void getCategories() async {
+  Future<void> getCategories() async {
     emit(GetCategoriesLoading());
     final categoriesOrfailure = await _homeRepo.getCategories();
     categoriesOrfailure.fold(

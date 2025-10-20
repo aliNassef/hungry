@@ -20,7 +20,7 @@ class ToppingsListItems extends StatelessWidget {
     >(
       buildWhen: (previous, current) =>
           current is GetToppingsLoaded ||
-          current is GetSideOptionsLoading ||
+          current is GetToppingsLoading ||
           current is GetToppingsError,
       builder: (context, state) {
         if (state is GetToppingsError) {

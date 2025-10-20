@@ -9,7 +9,7 @@ part 'get_products_state.dart';
 class GetProductsCubit extends Cubit<GetProductsState> {
   GetProductsCubit(this._homeRepo) : super(GetProductsInitial());
   final HomeRepo _homeRepo;
-  void getProducts({String? categoryId}) async {
+  Future<void> getProducts({String? categoryId}) async {
     emit(GetProductsLoading());
     final productsOrfailure = await _homeRepo.getProducts(
       categoryId: categoryId,

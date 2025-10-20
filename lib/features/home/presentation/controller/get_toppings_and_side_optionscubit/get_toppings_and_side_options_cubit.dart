@@ -13,8 +13,8 @@ class GetToppingsAndSideOptionsCubit
     : super(GetToppingsAndSideOptionsInitial());
   final HomeRepo _homeRepo;
 
-  void getToppings() async {
-    emit(GetSideOptionsLoading());
+  Future<void> getToppings() async {
+    emit(GetToppingsLoading());
     final result = await _homeRepo.getToppings();
     result.fold(
       (failure) => emit(GetToppingsError(errMessage: failure.errMessage)),
@@ -22,7 +22,7 @@ class GetToppingsAndSideOptionsCubit
     );
   }
 
-  void getSideOptions() async {
+  Future<void> getSideOptions() async {
     emit(GetSideOptionsLoading());
     final result = await _homeRepo.getSideOptions();
     result.fold(

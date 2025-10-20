@@ -14,13 +14,8 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (context) =>
-                injector<GetCategoriesCubit>()..getCategories(),
-          ),
-          BlocProvider(
-            create: (context) => injector<GetProductsCubit>()..getProducts(),
-          ),
+          BlocProvider(create: (context) => injector<GetCategoriesCubit>()),
+          BlocProvider(create: (context) => injector<GetProductsCubit>()),
         ],
         child: HomeViewBody(),
       ),
