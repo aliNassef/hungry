@@ -1,6 +1,29 @@
-Hungry - Food Ordering Flutter App
+<p align="center">
+<img src="https://raw.githubusercontent.com/alinassef/hungry/main/assets/images/splash_burger_image.png" alt="Hungry App Logo" width="200"/>
+</p>
+
+<h1 align="center">Hungry - Food Ordering Flutter App</h1>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter" alt="Flutter Version">
+<img src="https://img.shields.io/badge/Architecture-Clean%20%7C%20Feature--First-orange" alt="Architecture">
+<img src="https://img.shields.io/badge/State%20Management-Bloc%20%7C%20Cubit-blueviolet?logo=bloc" alt="State Management">
+<img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+</p>
 
 Hungry is a modern, feature-rich food ordering application built with Flutter. It demonstrates a clean, scalable, and production-ready architecture, suitable for building complex mobile applications.
+
+Table of Contents
+
+✨ Key Features
+
+🏗️ Architectural Design
+
+🛠️ Core Components & Libraries
+
+📁 Project Structure
+
+🚀 Getting Started
 
 ✨ Key Features
 
@@ -10,7 +33,7 @@ User Authentication: Secure user registration and login functionality.
 
 Dynamic Home Screen: Browse products by categories, search for items, and view a dynamic list of meals.
 
-Meal Customization: A detailed view for each meal where users can select toppings, side options, and adjust the spiciness level before adding to the cart.
+Meal Customization: A detailed view for each meal where users can select toppings, side options, and adjust the spiciness level.
 
 Shopping Cart: A fully reactive cart where users can view items, adjust quantities, and see the total price update in real-time.
 
@@ -23,6 +46,8 @@ Profile Management: Users can view and update their profile information, includi
 🏗️ Architectural Design
 
 The application is built following the principles of Clean Architecture with a Feature-First project structure. This approach ensures a clear separation of concerns, making the codebase modular, scalable, and easy to maintain.
+
+[صورة لمخطط Clean Architecture يوضح الطبقات]
 
 1. Feature-First Structure
 
@@ -101,25 +126,25 @@ Error Handling: dartz (Either type) for robust functional error handling in the 
 The lib directory is organized as follows:
 
 lib
-├── core/               # Shared modules for the entire app
-│   ├── api/            # Networking, endpoints, interceptors
-│   ├── di/             # Dependency injection setup
-│   ├── helpers/        # Utility classes (e.g., CacheHelper)
-│   ├── navigation/     # Routing logic
-│   ├── utils/          # App constants, colors, styles
-│   └── widgets/        # Common reusable widgets (e.g., buttons)
+├── core/               // Shared modules for the entire app
+│   ├── api/            // Networking, endpoints, interceptors
+│   ├── di/             // Dependency injection setup
+│   ├── helpers/        // Utility classes (e.g., CacheHelper)
+│   ├── navigation/     // Routing logic
+│   ├── utils/          // App constants, colors, styles
+│   └── widgets/        // Common reusable widgets (e.g., buttons)
 │
-├── features/           # Individual feature modules
-│   ├── auth/           # Authentication feature
-│   ├── cart/           # Shopping cart feature
-│   ├── checkout/       # Checkout feature
-│   ├── home/           # Home screen feature
-│   ├── orders_history/ # Past orders feature
-│   └── profile/        # User profile feature
+├── features/           // Individual feature modules
+│   ├── auth/           // Authentication feature
+│   ├── cart/           // Shopping cart feature
+│   ├── checkout/       // Checkout feature
+│   ├── home/           // Home screen feature
+│   ├── orders_history/ // Past orders feature
+│   └── profile/        // User profile feature
 │
-├── env/                # Environment variable management
-├── hungry_app.dart     # Root widget with Bloc providers
-└── main.dart           # Application entry point
+├── env/                // Environment variable management
+├── hungry_app.dart     // Root widget with Bloc providers
+└── main.dart           // Application entry point
 
 
 🚀 Getting Started
@@ -137,6 +162,11 @@ Installation:
 Clone the repo:
 
 git clone [https://github.com/alinassef/hungry.git](https://github.com/alinassef/hungry.git)
+
+
+Navigate to the project directory:
+
+cd hungry
 
 
 Install packages:
