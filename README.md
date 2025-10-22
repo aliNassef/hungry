@@ -146,6 +146,8 @@ lib
 └── main.dart           // Application entry point
 
 ```
+
+```
 🚀 Getting Started
 
 To get a local copy up and running, follow these simple steps.
@@ -181,3 +183,4 @@ flutter pub run build_runner build --delete-conflicting-outputs
 Run the app:
 
 flutter run
+```
