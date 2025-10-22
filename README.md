@@ -47,7 +47,6 @@ Profile Management: Users can view and update their profile information, includi
 
 The application is built following the principles of Clean Architecture with a Feature-First project structure. This approach ensures a clear separation of concerns, making the codebase modular, scalable, and easy to maintain.
 
-[صورة لمخطط Clean Architecture يوضح الطبقات]
 
 1. Feature-First Structure
 
