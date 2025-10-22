@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/alinassef/hungry/main/assets/images/splash_burger_image.png" alt="Hungry App Logo" width="200"/>
+<img src="https://github.com/aliNassef/hungry/blob/d4169e8bdf1c31923ba4289bf2938b25a6fa368d/assets/images/splash_burger_image.png" alt="Hungry App Logo" width="200"/>
 </p>
 
 <h1 align="center">Hungry - Food Ordering Flutter App</h1>
