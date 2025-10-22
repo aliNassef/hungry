@@ -123,7 +123,7 @@ Error Handling: dartz (Either type) for robust functional error handling in the 
 📁 Project Structure
 
 The lib directory is organized as follows:
-
+```
 lib
 ├── core/               // Shared modules for the entire app
 │   ├── api/            // Networking, endpoints, interceptors
@@ -145,7 +145,7 @@ lib
 ├── hungry_app.dart     // Root widget with Bloc providers
 └── main.dart           // Application entry point
 
-
+```
 🚀 Getting Started
 
 To get a local copy up and running, follow these simple steps.
