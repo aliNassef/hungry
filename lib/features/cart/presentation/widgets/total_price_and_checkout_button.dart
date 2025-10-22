@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/navigation/app_navigation.dart';
+import 'package:hungry/features/cart/data/models/order_model.dart';
 import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
-import 'package:hungry/features/cart/presentation/view/checkout_view.dart';
+import 'package:hungry/features/checkout/presentation/views/checkout_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';
@@ -47,7 +48,7 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: '${state.orderModel.totalPrice}',
+                          text: '${state.orderModel.calcTotalPrice()}',
                           style: AppStyles.regular22.copyWith(
                             color: AppColors.black,
                           ),
@@ -90,10 +91,26 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
         ),
         Gap(16.w),
         Expanded(
-          child: DefaultAppButton(
-            text: 'Checkout',
-            onPressed: () {
-              _goToCheckout(context);
+          child: BlocBuilder<CartCubit, CartState>(
+            builder: (context, state) {
+              if (state is CartLoaded) {
+                var order = state.orderModel;
+                return DefaultAppButton(
+                  text: 'Checkout',
+                  onPressed: () {
+                    _goToCheckout(context, order);
+                  },
+                );
+              }
+              return IgnorePointer(
+                ignoring: state is! CartLoaded,
+                child: DefaultAppButton(
+                  text: 'Checkout',
+                  onPressed: () {
+                    // _goToCheckout(context);
+                  },
+                ),
+              );
             },
           ),
         ),
@@ -101,11 +118,11 @@ class TotalpriceAndCheckoutButton extends StatelessWidget {
     );
   }
 
-  _goToCheckout(context) {
+  _goToCheckout(context, OrderModel order) {
     AppNavigation.pushNamed(
       context,
       CheckoutView.routeName,
-      arguments: const NavArgs(animation: NavAnimation.fade),
+      arguments: NavArgs(animation: NavAnimation.fade, data: order),
       useAppRoute: true,
     );
   }

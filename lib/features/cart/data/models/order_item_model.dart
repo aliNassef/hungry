@@ -25,6 +25,19 @@ class OrderItemModel {
     required this.toppings,
     required this.sideOptions,
   });
+  Map<String, dynamic> toJson() {
+    return {
+      'item_id': itemId,
+      'product_id': productId,
+      'name': name,
+      'image': image,
+      'quantity': quantity,
+      'price': price.toString(),
+      'spicy': spicy?.toString(),
+      'toppings': toppings.map((topping) => topping.toJson()).toList(),
+      'side_options': sideOptions.map((option) => option.toJson()).toList(),
+    };
+  }
 
   factory OrderItemModel.fromJson(Map<String, dynamic> json) {
     List<ToppingModel> parseToppings(List<dynamic> jsonList) {
@@ -60,6 +73,30 @@ class OrderItemModel {
       spicy: parseSpicy(json['spicy']),
       toppings: parseToppings(json['toppings'] as List),
       sideOptions: parseOptions(json['side_options'] as List),
+    );
+  }
+
+  OrderItemModel copyWith({
+    int? itemId,
+    int? productId,
+    String? name,
+    String? image,
+    int? quantity,
+    double? price,
+    double? spicy,
+    List<ToppingModel>? toppings,
+    List<SlideOptionModel>? sideOptions,
+  }) {
+    return OrderItemModel(
+      itemId: itemId ?? this.itemId,
+      productId: productId ?? this.productId,
+      name: name ?? this.name,
+      image: image ?? this.image,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+      spicy: spicy ?? this.spicy,
+      toppings: toppings ?? List<ToppingModel>.from(this.toppings),
+      sideOptions: sideOptions ?? List<SlideOptionModel>.from(this.sideOptions),
     );
   }
 }

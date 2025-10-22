@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class IncrementAndDecrementButton extends StatefulWidget {
-  const IncrementAndDecrementButton({super.key});
-
+  const IncrementAndDecrementButton({
+    super.key,
+    required this.quatity,
+    required this.id,
+  });
+  final int quatity;
+  final int id;
   @override
   State<IncrementAndDecrementButton> createState() =>
       _IncrementAndDecrementButtonState();
@@ -15,7 +22,13 @@ class IncrementAndDecrementButton extends StatefulWidget {
 
 class _IncrementAndDecrementButtonState
     extends State<IncrementAndDecrementButton> {
-  int count = 1;
+  int _quantity = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _quantity = widget.quatity;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +42,11 @@ class _IncrementAndDecrementButtonState
             ),
             backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
           ),
-          onPressed: () {
-            if (count > 1) setState(() => count--);
-          },
+          onPressed: onDecrement,
           icon: const Icon(FontAwesomeIcons.minus, color: AppColors.light),
         ),
         Text(
-          count.toString(),
+          _quantity.toString(),
           style: AppStyles.medium18.copyWith(
             color: AppColors.brown,
             fontSize: 24.sp,
@@ -48,12 +59,20 @@ class _IncrementAndDecrementButtonState
             ),
             backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
           ),
-          onPressed: () {
-            setState(() => count++);
-          },
+          onPressed: onIncrement,
           icon: const Icon(FontAwesomeIcons.plus, color: AppColors.light),
         ),
       ],
     );
+  }
+
+  void onIncrement() {
+    _quantity++;
+    context.read<CartCubit>().updateQuanitiy(widget.id, _quantity);
+  }
+
+  void onDecrement() {
+    if (_quantity > 1) _quantity--;
+    context.read<CartCubit>().updateQuanitiy(widget.id, _quantity);
   }
 }

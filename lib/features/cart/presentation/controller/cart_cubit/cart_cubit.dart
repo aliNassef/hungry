@@ -29,9 +29,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   void removeItemFromCart(int id) async {
-    emit(CartRemoveLoading(
-      id: id
-    ));
+    emit(CartRemoveLoading(id: id));
     final removedOrfailure = await _cartRepo.removeFromCarts(id: id);
     removedOrfailure.fold(
       (failure) => emit(CartRemoveError(errMessage: failure.errMessage)),
@@ -39,5 +37,20 @@ class CartCubit extends Cubit<CartState> {
         emit(CartRemoved(id: id));
       },
     );
+  }
+
+  void updateQuanitiy(int itemId, int qty) {
+    var currentState = state;
+    if (currentState is CartLoaded) {
+      var order = currentState.orderModel.items.map((meal) {
+        if (meal.itemId == itemId) {
+          return meal.copyWith(quantity: qty);
+        }
+        return meal;
+      }).toList();
+      emit(
+        CartLoaded(orderModel: currentState.orderModel.copyWith(items: order)),
+      );
+    }
   }
 }

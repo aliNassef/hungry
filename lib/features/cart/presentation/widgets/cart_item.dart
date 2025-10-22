@@ -48,7 +48,10 @@ class CartItem extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                const IncrementAndDecrementButton(),
+                IncrementAndDecrementButton(
+                  quatity: orderItem.quantity,
+                  id: orderItem.itemId,
+                ),
                 const Spacer(),
                 Row(
                   children: [

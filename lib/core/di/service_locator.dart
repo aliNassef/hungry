@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/checkout/data/datasource/checkout_remote_datasource.dart';
+import '../../features/checkout/data/repo/checkout_repo.dart';
+import '../../features/checkout/data/repo/checkout_repo_impl.dart';
+import '../../features/checkout/presentation/controller/checkout_cubit/checkout_cubit.dart';
 import '../../features/orders_history/data/datasource/order_history_remote_datasource.dart';
 import '../../features/orders_history/data/repo/order_history_repo.dart';
 import '../../features/orders_history/data/repo/order_history_repo_impl.dart';
@@ -38,6 +42,7 @@ void setupServiceLocator() async {
   _setupCartFeature();
   _profileFeature();
   _ordersHistoryFeature();
+  _checkoutFeature();
 }
 
 void _setupExternal() {
@@ -115,5 +120,17 @@ void _ordersHistoryFeature() {
     () => OrderHistoryRemoteDatasourceImpl(
       apiService: injector.get<ApiService>(),
     ),
+  );
+}
+
+void _checkoutFeature() {
+  injector.registerFactory(() => CheckoutCubit(injector.get<CheckoutRepo>()));
+  injector.registerLazySingleton<CheckoutRepo>(
+    () => CheckoutRepoImpl(
+      remoteDatasource: injector.get<CheckoutRemoteDatasource>(),
+    ),
+  );
+  injector.registerLazySingleton<CheckoutRemoteDatasource>(
+    () => CheckoutRemoteDatasourceImpl(apiService: injector.get<ApiService>()),
   );
 }

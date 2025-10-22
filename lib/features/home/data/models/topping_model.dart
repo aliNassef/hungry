@@ -7,7 +7,13 @@ class ToppingModel {
     required this.name,
     required this.image,
   });
-
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'image': image,
+    };
+  }
   factory ToppingModel.fromJson(Map<String, dynamic> json) {
     return ToppingModel(
       id: json['id'],

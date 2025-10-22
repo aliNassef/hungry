@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'order_item_model.dart';
 
 class OrderModel {
@@ -19,6 +20,7 @@ class OrderModel {
           .toList(),
     );
   }
+  
 
   static OrderModel dummy = OrderModel(
     id: 1,
@@ -48,4 +50,26 @@ class OrderModel {
       ),
     ],
   );
+
+  OrderModel copyWith({
+    int? id,
+    double? totalPrice,
+    List<OrderItemModel>? items,
+  }) {
+    return OrderModel(
+      id: id ?? this.id,
+      totalPrice: totalPrice ?? this.totalPrice,
+      items: items ?? this.items,
+    );
+  }
+
+  calcTotalPrice() {
+    num total = 0;
+    for (var meal in items) {
+      var price = meal.price;
+      var count = meal.quantity;
+      total += (count.toDouble() * price).toDouble();
+    }
+    return total;
+  }
 }

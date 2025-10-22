@@ -28,6 +28,10 @@ class MealDetailsViewBody extends StatefulWidget {
 }
 
 class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
+  late ValueNotifier<double> spicyValue;
+
+  late ValueNotifier<List<int>> toppings;
+  late ValueNotifier<List<int>> sideOptions;
   @override
   void initState() {
     super.initState();
@@ -35,11 +39,19 @@ class _MealDetailsViewBodyState extends State<MealDetailsViewBody> {
       context.read<GetToppingsAndSideOptionsCubit>().getToppings(),
       context.read<GetToppingsAndSideOptionsCubit>().getSideOptions(),
     ]);
+    spicyValue = ValueNotifier(0.5);
+    toppings = ValueNotifier([]);
+    sideOptions = ValueNotifier([]);
   }
 
-  ValueNotifier<double> spicyValue = ValueNotifier(0.5);
-  ValueNotifier<List<int>> toppings = ValueNotifier([]);
-  ValueNotifier<List<int>> sideOptions = ValueNotifier([]);
+  @override
+  void dispose() {
+    spicyValue.dispose();
+    toppings.dispose();
+    sideOptions.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(

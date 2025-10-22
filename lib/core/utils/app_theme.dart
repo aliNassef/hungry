@@ -8,8 +8,12 @@ class AppTheme {
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: Colors.white,
     textTheme: GoogleFonts.robotoTextTheme(),
-    primarySwatch: Colors.green, // Your app's primary theme color
-    // This is where you customize the selection colors
+    primarySwatch: Colors.green,
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      circularTrackColor: AppColors.primary,
+      color: AppColors.lightGrey,
+    ),
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: AppColors.lightGrey,
       selectionHandleColor: AppColors.lightGrey,

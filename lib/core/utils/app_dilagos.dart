@@ -20,7 +20,7 @@ abstract class AppDilagos {
   static Future<dynamic> showLoadingBox(BuildContext context) {
     return showDialog(
       context: context,
-      barrierDismissible: true,
+      barrierDismissible: false,
       builder: (context) {
         return Center(
           child: Container(
@@ -32,7 +32,8 @@ abstract class AppDilagos {
             ),
             alignment: Alignment.center,
             child: const CircularProgressIndicator.adaptive(
-              backgroundColor: AppColors.primary,
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+              backgroundColor: AppColors.lightGrey,
             ),
           ),
         );

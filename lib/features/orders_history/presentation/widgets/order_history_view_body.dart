@@ -26,6 +26,8 @@ class OrderHistoryViewBody extends StatelessWidget {
         if (state is GetOrdersHistoryLoading) {
           return Skeletonizer(
             enabled: true,
+            containersColor: Colors.grey[300]!,
+            ignoreContainers: true,
             child: ListView.separated(
               itemCount: OrderHistoryModel.dummy.length,
               separatorBuilder: (context, index) => Gap(10.h),

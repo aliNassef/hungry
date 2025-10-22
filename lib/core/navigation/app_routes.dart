@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hungry/features/cart/data/models/order_model.dart';
 import '../../features/home/data/models/meal_model.dart';
 import '../../features/splash/presentation/view/splash_view.dart';
 
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/register_view.dart';
-import '../../features/cart/presentation/view/checkout_view.dart';
+import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/home/presentation/view/meal_details_view.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
 import 'nav_animation_enum.dart';
@@ -28,7 +29,8 @@ class AppRouter {
         page = MealDetailsView(meal: meal);
         break;
       case CheckoutView.routeName:
-        page = const CheckoutView();
+        final order = navArgs.data as OrderModel;
+        page = CheckoutView(order: order);
         break;
       case LoginView.routeName:
         page = const LoginView();
