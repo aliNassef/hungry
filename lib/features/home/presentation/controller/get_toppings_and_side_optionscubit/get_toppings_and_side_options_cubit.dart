@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../data/models/topping_model.dart';
-import '../../../data/repo/home_repo.dart';
 
 import '../../../data/models/slide_option_model.dart';
+import '../../../data/models/topping_model.dart';
+import '../../../data/repo/home_repo.dart';
 
 part 'get_toppings_and_side_options_state.dart';
 

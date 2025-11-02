@@ -1,12 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
 import '../../../../core/api/errors/exceptions.dart';
 import '../../../../core/api/errors/failure.dart';
 import '../datasource/profile_local_datasource.dart';
 import '../datasource/profile_remote_datasource.dart';
-
 import '../models/profile_model.dart';
-
 import 'profile_repo.dart';
 
 class ProfileRepoImpl extends ProfileRepo {

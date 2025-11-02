@@ -1,9 +1,8 @@
 import '../../../../core/api/api_service.dart';
 import '../../../../core/api/end_ponits.dart';
-import '../models/register_input_model.dart';
-
 import '../models/login_input_model.dart';
 import '../models/login_model.dart';
+import '../models/register_input_model.dart';
 
 abstract class AuthRemoteDatasource {
   Future<UserModel> login(LoginInputModel loginInputModel);

@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/extensions/mediaquery_size.dart';
-import 'package:hungry/features/cart/data/models/order_item_model.dart';
-import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
+
+import '../../../../core/extensions/mediaquery_size.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_shadwo.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_network_image.dart';
 import '../../../../core/widgets/default_app_button.dart';
+import '../../data/models/order_item_model.dart';
+import '../controller/cart_cubit/cart_cubit.dart';
 import 'increment_and_decrement_button.dart';
 
 class CartItem extends StatelessWidget {

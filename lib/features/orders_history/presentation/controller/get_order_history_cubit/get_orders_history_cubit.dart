@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hungry/features/orders_history/data/repo/order_history_repo.dart';
+import '../../../data/repo/order_history_repo.dart';
 
 import '../../../data/models/order_history_model.dart';
 

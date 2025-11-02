@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hungry/core/di/service_locator.dart';
-import 'package:hungry/core/logging/app_logger.dart';
-import 'package:hungry/features/cart/data/models/order_model.dart';
-import 'package:hungry/features/checkout/presentation/controller/checkout_cubit/checkout_cubit.dart';
+import '../../../../core/di/service_locator.dart';
+import '../../../../core/logging/app_logger.dart';
+import '../../../cart/data/models/order_model.dart';
+import '../controller/checkout_cubit/checkout_cubit.dart';
 import '../widgets/checkout_view_body.dart';
 
 class CheckoutView extends StatelessWidget {

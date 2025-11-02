@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hungry/features/cart/data/models/order_model.dart';
+import '../../features/cart/data/models/order_model.dart';
 import '../../features/home/data/models/meal_model.dart';
 import '../../features/splash/presentation/view/splash_view.dart';
 

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../data/repo/auth_repo.dart';
 
 import '../../../data/models/login_input_model.dart';
 import '../../../data/models/register_input_model.dart';
+import '../../../data/repo/auth_repo.dart';
 
 part 'auth_state.dart';
 

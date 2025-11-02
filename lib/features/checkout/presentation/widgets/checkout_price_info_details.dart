@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hungry/core/extensions/padding_extension.dart';
-import 'package:hungry/core/utils/app_colors.dart';
-import 'package:hungry/core/utils/app_styles.dart';
+
+import '../../../../core/extensions/padding_extension.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
 
 class CheckoutPriceInfoDetails extends StatelessWidget {
   const CheckoutPriceInfoDetails({

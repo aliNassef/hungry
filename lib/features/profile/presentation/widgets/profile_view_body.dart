@@ -1,20 +1,22 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/extensions/mediaquery_size.dart';
-import '../../../../core/helpers/image_picker_helper.dart';
-import '../../../../core/widgets/custom_failure_widget.dart';
-import '../controller/profile_cubit/profile_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import '../../../../core/extensions/mediaquery_size.dart';
+import '../../../../core/helpers/image_picker_helper.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_shadwo.dart';
+import '../../../../core/widgets/custom_failure_widget.dart';
 import '../../../../core/widgets/custom_network_image.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/default_app_button.dart';
+import '../controller/profile_cubit/profile_cubit.dart';
 import 'logout_button_bloc_listener.dart';
 import 'profile_top_bar.dart';
 import 'update_profile_button_bloc_listener.dart';

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../data/repo/home_repo.dart';
 
 import '../../../data/models/category_model.dart';
+import '../../../data/repo/home_repo.dart';
 
 part 'get_categories_state.dart';
 

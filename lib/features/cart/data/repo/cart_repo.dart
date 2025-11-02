@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:hungry/core/api/errors/failure.dart';
-import 'package:hungry/features/cart/data/models/order_model.dart';
+import '../../../../core/api/errors/failure.dart';
+import '../models/order_model.dart';
 
 import '../models/cart_item_input_model.dart';
 

@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../../../../core/api/errors/failure.dart';
-import '../models/meal_model.dart';
 
+import '../../../../core/api/errors/failure.dart';
 import '../models/category_model.dart';
+import '../models/meal_model.dart';
 import '../models/slide_option_model.dart';
 import '../models/topping_model.dart';
 

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:hungry/core/api/api_service.dart';
-import 'package:hungry/core/api/end_ponits.dart';
+
+import '../../../../core/api/api_service.dart';
+import '../../../../core/api/end_ponits.dart';
 import '../models/order_history_model.dart';
 
 abstract class OrderHistoryRemoteDatasource {

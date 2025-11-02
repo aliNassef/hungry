@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:hungry/features/checkout/data/repo/checkout_repo.dart';
 
 import '../../../../core/api/errors/exceptions.dart';
 import '../../../../core/api/errors/failure.dart';
 import '../datasource/checkout_remote_datasource.dart';
 import '../model/checkout_input_model.dart';
+import 'checkout_repo.dart';
 
 class CheckoutRepoImpl extends CheckoutRepo {
   final CheckoutRemoteDatasource _remoteDatasource;

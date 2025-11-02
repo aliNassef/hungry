@@ -4,22 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import '../../../../core/helpers/image_picker_helper.dart';
-import '../../../../core/navigation/nav_animation_enum.dart';
-import '../../../../core/navigation/nav_args.dart';
-import '../../../../core/widgets/default_app_button.dart';
-import '../controller/cubit/auth_cubit.dart';
-import '../views/login_view.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../../core/helpers/image_picker_helper.dart';
 import '../../../../core/navigation/app_navigation.dart';
+import '../../../../core/navigation/nav_animation_enum.dart';
+import '../../../../core/navigation/nav_args.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_dilagos.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../core/widgets/default_app_button.dart';
 import '../../../../core/widgets/logo_widget.dart';
 import '../../../layout/presentation/views/layout_view.dart';
 import '../../data/models/register_input_model.dart';
+import '../controller/cubit/auth_cubit.dart';
+import '../views/login_view.dart';
 import 'another_way_signing.dart';
 
 class RegisterViewBody extends StatefulWidget {

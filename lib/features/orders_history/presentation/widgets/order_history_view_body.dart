@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/features/orders_history/presentation/controller/get_order_history_cubit/get_orders_history_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/widgets/custom_failure_widget.dart';
 import '../../data/models/order_history_model.dart';
+import '../controller/get_order_history_cubit/get_orders_history_cubit.dart';
 import 'order_history_item.dart';
 
 class OrderHistoryViewBody extends StatelessWidget {

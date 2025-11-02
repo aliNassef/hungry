@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+
 import '../../../../core/navigation/app_navigation.dart';
+import '../../../../core/navigation/nav_animation_enum.dart';
+import '../../../../core/navigation/nav_args.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_shadwo.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_network_image.dart';
 import '../../data/models/meal_model.dart';
-
-import '../../../../core/navigation/nav_animation_enum.dart';
-import '../../../../core/navigation/nav_args.dart';
-import '../../../../core/utils/app_shadwo.dart';
 import '../view/meal_details_view.dart';
 
 class MealCardItem extends StatelessWidget {

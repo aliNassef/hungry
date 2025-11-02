@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../data/repo/profile_repo.dart';
 
 import '../../../data/models/profile_model.dart';
+import '../../../data/repo/profile_repo.dart';
 
 part 'profile_state.dart';
 

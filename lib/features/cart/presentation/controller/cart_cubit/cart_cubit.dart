@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hungry/features/cart/data/models/cart_item_input_model.dart';
 
+import '../../../data/models/cart_item_input_model.dart';
 import '../../../data/models/order_model.dart';
 import '../../../data/repo/cart_repo.dart';
 

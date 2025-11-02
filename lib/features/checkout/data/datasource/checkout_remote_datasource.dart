@@ -1,5 +1,5 @@
-import 'package:hungry/core/api/api_service.dart';
-import 'package:hungry/core/api/end_ponits.dart';
+import '../../../../core/api/api_service.dart';
+import '../../../../core/api/end_ponits.dart';
 import '../model/checkout_input_model.dart';
 
 abstract class CheckoutRemoteDatasource {

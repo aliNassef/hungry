@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/extensions/padding_extension.dart';
-import 'package:hungry/core/utils/app_dilagos.dart';
-import 'package:hungry/features/cart/data/models/order_model.dart';
-import 'package:hungry/features/checkout/data/model/checkout_input_model.dart';
-import 'package:hungry/features/checkout/data/model/checkout_item_model.dart';
-import 'package:hungry/features/checkout/presentation/controller/checkout_cubit/checkout_cubit.dart';
 
+import '../../../../core/extensions/padding_extension.dart';
 import '../../../../core/logging/app_logger.dart';
 import '../../../../core/navigation/app_navigation.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_dilagos.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/default_app_button.dart';
+import '../../../cart/data/models/order_model.dart';
+import '../../data/model/checkout_input_model.dart';
+import '../../data/model/checkout_item_model.dart';
+import '../controller/checkout_cubit/checkout_cubit.dart';
 import 'checkout_price_info_details.dart';
 
 class CheckoutViewBody extends StatelessWidget {

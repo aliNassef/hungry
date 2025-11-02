@@ -1,4 +1,4 @@
-import 'package:hungry/features/checkout/data/model/checkout_item_model.dart';
+import 'checkout_item_model.dart';
 
 class CheckoutInputModel {
   final List<CheckoutItemModel> items;

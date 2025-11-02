@@ -1,16 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../app_constants.dart';
 import '../api/api_interceptors.dart';
 import '../di/service_locator.dart';
-import 'app_colors.dart';
-
 import '../helpers/cache_helper.dart';
 import '../logging/app_logger.dart';
 import '../logging/custom_bloc_observer.dart';
+import 'app_colors.dart';
 
 class AppInitializer {
   static Future<void> init() async {

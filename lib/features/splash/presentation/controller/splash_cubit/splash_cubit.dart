@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
 import '../../../../auth/data/repo/auth_repo.dart';
 
 part 'splash_state.dart';

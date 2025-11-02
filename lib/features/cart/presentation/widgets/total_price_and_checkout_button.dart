@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:hungry/core/navigation/app_navigation.dart';
-import 'package:hungry/features/cart/data/models/order_model.dart';
-import 'package:hungry/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
-import 'package:hungry/features/checkout/presentation/views/checkout_view.dart';
+import '../../../../core/navigation/app_navigation.dart';
+import '../../data/models/order_model.dart';
+import '../controller/cart_cubit/cart_cubit.dart';
+import '../../../checkout/presentation/views/checkout_view.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/navigation/nav_animation_enum.dart';

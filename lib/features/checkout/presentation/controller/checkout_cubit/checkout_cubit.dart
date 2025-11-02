@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:hungry/features/checkout/data/model/checkout_input_model.dart';
-import 'package:hungry/features/checkout/data/repo/checkout_repo.dart';
+import '../../../data/model/checkout_input_model.dart';
+import '../../../data/repo/checkout_repo.dart';
 
 part 'checkout_state.dart';
 

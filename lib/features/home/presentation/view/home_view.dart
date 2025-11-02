@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/di/service_locator.dart';
 import '../controller/get_categories_cubit/get_categories_cubit.dart';
-
 import '../controller/get_products_cubit/get_products_cubit.dart';
 import '../widgets/home_view_body.dart';
 

@@ -1,15 +1,12 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/api/errors/exceptions.dart';
 import '../../../../core/api/errors/failure.dart';
 import '../datasource/auth_local_datasource.dart';
-
+import '../datasource/auth_remote_datasource.dart';
 import '../models/login_input_model.dart';
-
 import '../models/login_model.dart';
 import '../models/register_input_model.dart';
-
-import '../../../../core/api/errors/exceptions.dart';
-import '../datasource/auth_remote_datasource.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
