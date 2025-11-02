@@ -117,6 +117,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             isPassword: true,
             label: 'Password',
             hint: 'Enter your password',
+            textInputAction: TextInputAction.done,
           ),
           Gap(40.h),
           _buildRegisterBuutoonBlocListener(context),

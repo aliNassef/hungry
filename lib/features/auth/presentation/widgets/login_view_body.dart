@@ -73,6 +73,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             isPassword: true,
             label: 'Password',
             hint: 'Enter your password',
+            textInputAction: TextInputAction.done,
           ),
           Gap(40.h),
           _buildLoginBlocListner(),

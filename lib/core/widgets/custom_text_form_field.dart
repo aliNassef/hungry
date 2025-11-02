@@ -12,13 +12,14 @@ class CustomTextFormField extends StatefulWidget {
     required this.hint,
     this.controller,
     this.isPassword = false,
+    this.textInputAction = TextInputAction.next,
   });
 
   final bool isPassword;
   final String label;
   final String hint;
   final TextEditingController? controller;
-
+  final TextInputAction textInputAction;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -34,6 +35,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: widget.textInputAction,
+      onEditingComplete: () {
+        if (widget.textInputAction == TextInputAction.done) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        } else {
+          FocusScope.of(context).nextFocus();
+        }
+      },
       controller: widget.controller,
       validator: (val) {
         if (val == null || val.isEmpty) {
@@ -44,7 +53,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       cursorColor: AppColors.light,
       style: AppStyles.semiBold16.copyWith(color: AppColors.light),
-      obscureText: _showVisobility,
+      obscureText: widget.isPassword && _showVisobility,
       decoration: InputDecoration(
         labelText: widget.label,
         floatingLabelBehavior: FloatingLabelBehavior.always,
